@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 14-Dez-2020 às 23:38
+-- Tempo de geração: 15-Dez-2020 às 23:35
 -- Versão do servidor: 5.7.32-0ubuntu0.18.04.1
 -- versão do PHP: 7.4.13
 
@@ -24,12 +24,41 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `category`
+-- Estrutura da tabela `categories`
 --
 
-CREATE TABLE `category` (
+CREATE TABLE `categories` (
   `cat_id` int(3) NOT NULL,
   `cat_title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `categories`
+--
+
+INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
+(1, 'BootStrap'),
+(2, 'JavaScript'),
+(3, 'PHP'),
+(4, 'Java');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `posts`
+--
+
+CREATE TABLE `posts` (
+  `post_id` int(3) NOT NULL,
+  `post_category_id` int(3) NOT NULL,
+  `post_title` varchar(255) NOT NULL,
+  `post_author` varchar(255) NOT NULL,
+  `post_date` date NOT NULL,
+  `post_image` text NOT NULL,
+  `post_content` text NOT NULL,
+  `post_tags` varchar(255) NOT NULL,
+  `post_comment_count` int(11) NOT NULL,
+  `post_status` varchar(255) NOT NULL DEFAULT 'draft'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -37,20 +66,32 @@ CREATE TABLE `category` (
 --
 
 --
--- Índices para tabela `category`
+-- Índices para tabela `categories`
 --
-ALTER TABLE `category`
+ALTER TABLE `categories`
   ADD PRIMARY KEY (`cat_id`);
+
+--
+-- Índices para tabela `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`post_id`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT de tabela `category`
+-- AUTO_INCREMENT de tabela `categories`
 --
-ALTER TABLE `category`
-  MODIFY `cat_id` int(3) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `categories`
+  MODIFY `cat_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
