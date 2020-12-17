@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 15-Dez-2020 às 23:35
+-- Tempo de geração: 17-Dez-2020 às 20:35
 -- Versão do servidor: 5.7.32-0ubuntu0.18.04.1
 -- versão do PHP: 7.4.13
 
@@ -57,9 +57,17 @@ CREATE TABLE `posts` (
   `post_image` text NOT NULL,
   `post_content` text NOT NULL,
   `post_tags` varchar(255) NOT NULL,
-  `post_comment_count` int(11) NOT NULL,
+  `post_comment_count` int(11) NOT NULL DEFAULT '0',
   `post_status` varchar(255) NOT NULL DEFAULT 'draft'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `posts`
+--
+
+INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`, `post_date`, `post_image`, `post_content`, `post_tags`, `post_comment_count`, `post_status`) VALUES
+(1, 1, 'A novinha é linda', 'Tiago Bordin', '2020-12-17', 'novinha.jpg', 'As novinhas estão gostosinhas demais,, quero muitas delas na minha cama, em breve.', 'novinha, gostosinha, linda', 0, 'draft'),
+(2, 2, 'JavaScript Course Post', 'Belinda', '2020-12-19', 'novinha-2.jpeg', 'WOW! Man this is really cool post! Can you call me, Belinda?', 'javascript2, course, class, belinda', 0, 'draft');
 
 --
 -- Índices para tabelas despejadas
@@ -91,7 +99,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT de tabela `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
