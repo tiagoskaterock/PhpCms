@@ -1,6 +1,8 @@
-<?php ob_start(); ?>
-
 <?php require_once('../includes/db.php'); ?>
+
+<?php require_once('functions.php'); ?>
+
+<?php ob_start(); ?>
 
 <?php session_start(); ?>
 
