@@ -27,8 +27,8 @@
             }
 
             switch ($source) {
-              case '43':
-                echo 'NICE 43';
+              case 'add_post':
+                include('includes/add_post.php');
                 break;
               
               default:

@@ -1,6 +1,14 @@
 <?php    
   require('includes/admin_header.php');
 
+  function confirm_query($result){
+    global $connection;
+    if (!$result) {
+      die('QUERY FAILED: ' . mysqli_error($connection));
+    }
+    return $result;
+  }
+
   function insert_categories(){
 
     global $connection;

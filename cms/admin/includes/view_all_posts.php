@@ -10,6 +10,7 @@
       <th>Tags</th>
       <th>Comments</th>
       <th>Date</th>
+      <th>Action</th>
     </tr>
   </thead>
 
@@ -32,6 +33,7 @@
           <td><?= utf8_encode($row['post_tags']) ?></td>
           <td><?= utf8_encode($row['post_comment_count']) ?></td>
           <td><?= utf8_encode($row['post_date']) ?></td>
+          <td><a href="posts.php?delete=<?= $row['post_id'] ?>">Delete</a></td>
         </tr>
 
         <?php
@@ -42,3 +44,15 @@
   
   </tbody>
 </table>
+
+<?php
+
+	if (isset($_GET['delete'])) {
+		$the_post_id = $_GET['delete'];
+		$query = "DELETE FROM posts WHERE post_id = $the_post_id";
+		$delete_query = mysqli_query($connection, $query);
+		header("Location: posts.php");
+	}
+
+
+?>
