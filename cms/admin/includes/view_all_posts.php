@@ -1,15 +1,16 @@
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Author</th>
-      <th>Title</th>
-      <th>Category</th>
-      <th>Status</th>
-      <th>Image</th>
-      <th>Tags</th>
-      <th>Comments</th>
-      <th>Date</th>
+      <!--<th style="text-align: center !important;">ID</th>-->
+      <th style="text-align: center !important;">Author</th>
+      <th style="text-align: center !important;">Title</th>
+      <th style="text-align: center !important;">Category</th>
+      <th style="text-align: center !important;">Status</th>
+      <th style="text-align: center !important;">Image</th>
+      <th style="text-align: center !important;">Tags</th>
+      <th style="text-align: center !important;">Comments</th>
+      <th style="text-align: center !important;">Date</th>
+      <th style="text-align: center !important;" colspan="2">Action</th>
     </tr>
   </thead>
 
@@ -24,7 +25,7 @@
         ?>
 
         <tr>
-          <td><?= $row['post_id'] ?></td>
+          <!--td><?= $row['post_id'] ?></td>-->
           <td><?= $row['post_author'] ?></td>
           <td><?= $row['post_title'] ?></td>
 
