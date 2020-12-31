@@ -43,7 +43,7 @@
                     <?php
 
                       $query = "SELECT * FROM categories;";
-                      $select_categories_sidebar = mysqli_query($connection, $query);                  
+                      $select_categories_sidebar = mysqli_query($connection, $query);                    
                     ?>
 
 
@@ -55,14 +55,15 @@
 
                                 <?php
 
-                                while ($row = mysqli_fetch_assoc($select_categories_sidebar))
-                                {
-                                    ?>
-                                      <li>
-                                        <a href="#"><?php echo $row['cat_title']; ?></a>
-                                      </li>
-                                    <?php
-                                } ?>
+                while ($row = mysqli_fetch_assoc($select_categories_sidebar))
+                {
+                    $the_cat_id = $row['cat_id'];
+                    ?>
+                      <li>
+                        <a href="category.php?category=<?= $the_cat_id ?>"><?php echo $row['cat_title']; ?></a>
+                      </li>
+                    <?php
+                } ?>
 
                             </ul>
                         </div>

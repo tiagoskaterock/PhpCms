@@ -63,14 +63,15 @@
 
 			confirm_query($update_post);
 
+			header("Location: posts.php");
+
 			if (!$update_post) {
 				die('QUERY FAILED: '. mysqli_error($connection));
 			}
 
-
 		}
 
-	}
+	}	
 	
 ?>
 
@@ -87,13 +88,13 @@
 	<!-- Post Category ID -->
 	<div class="form-group">
 
-		<label for="post_category_id">Post Category ID</label><br>
+		<label for="post_category_id">Category</label><br>
 
 		<select name="post_category" id="post_category">
 
 		<?php
 
-		$query = "SELECT * FROM categories";
+		$query = "SELECT * FROM categories ORDER BY cat_title";
 
       $select_categories = mysqli_query($connection, $query); 
 

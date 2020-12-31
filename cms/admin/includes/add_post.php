@@ -56,7 +56,9 @@
 
       $select_categories = mysqli_query($connection, $query); 
 
-      confirm_query($select_categories)  ;
+      header("Location: posts.php");
+
+      confirm_query($select_categories);
 
       while ($row = mysqli_fetch_assoc($select_categories)) {
         $cat_id = $row['cat_id'];
