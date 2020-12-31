@@ -23,16 +23,13 @@
 
 		confirm_query($create_post_query);
 
+		header("Location: posts.php");
 
 	}
 
-
-
 ?>
 
-
-
-
+<h2>Create a New Post</h2>
 
 <form action="" method="post" enctype="multipart/form-data">
 	
@@ -54,9 +51,7 @@
 
 		$query = "SELECT * FROM categories";
 
-      $select_categories = mysqli_query($connection, $query); 
-
-      header("Location: posts.php");
+      $select_categories = mysqli_query($connection, $query);      
 
       confirm_query($select_categories);
 

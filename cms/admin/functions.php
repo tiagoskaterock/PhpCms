@@ -95,5 +95,25 @@
     }
   }
 
+  function show_post_buttons(){
+    ?>
+      <!-- Buttons -->
+      <div class="form-group">  
+
+        <!-- Add New Post Button -->
+        <a href="posts.php?source=add_post">
+          <button class="btn btn-primary">Create New Post</button>
+        </a>
+
+        <!-- See All Posts Button -->
+        <a href="posts.php">
+          <button class="btn btn-primary">See All Posts</button>
+        </a>
+      </div>
+      <!-- End Buttons -->
+    <?php
+
+  }
+
 
 ?>

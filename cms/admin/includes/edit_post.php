@@ -61,15 +61,17 @@
 
 			$update_post = mysqli_query($connection, $query);
 
-			confirm_query($update_post);
-
-			header("Location: posts.php");
+			confirm_query($update_post);		
 
 			if (!$update_post) {
 				die('QUERY FAILED: '. mysqli_error($connection));
 			}
 
+			header("Location: posts.php");
+
 		}
+
+
 
 	}	
 	
@@ -103,8 +105,16 @@
       while ($row = mysqli_fetch_assoc($select_categories)) {
         $cat_id = $row['cat_id'];
         $cat_title = $row['cat_title'];
+        echo "<h1>$cat_id</h1>";
+        
         ?>
-        <option value="<?= $cat_id ?>"><?= $cat_title ?></option>	
+        <option 
+        <?php
+        	if ($post_category_id == $cat_id) {
+        		echo "selected";
+        	}
+        ?>
+        value="<?= $cat_id ?>"><?= $cat_title ?></option>	
         <?php
       }
 
@@ -147,7 +157,7 @@
 	<!-- Post Content -->
 	<div class="form-group">
 		<label for="post_content">Post Content</label>
-		<textarea type="text" class="form-control" name="post_content" required required cols="30" rows="5"><?= $post_content ?>			
+		<textarea type="text" class="form-control" name="post_content" required cols="30" rows="5"><?= $post_content ?>			
 		</textarea>
 	</div>
 

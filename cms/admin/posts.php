@@ -15,6 +15,8 @@
       
         	<h1>Posts</h1>
 
+          <?php show_post_buttons(); ?>
+          
           <?php 
 
             $source;
@@ -45,6 +47,8 @@
         </div><!-- col-lg-12 -->
 
       </div><!-- /.row -->
+
+      <?php show_post_buttons(); ?>
     
     </div><!-- /.container-fluid -->
   
