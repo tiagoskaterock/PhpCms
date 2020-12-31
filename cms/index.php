@@ -22,11 +22,11 @@
                     $select_all_posts_query = mysqli_query($connection, $query);
 
                     while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
-                        $post_title = utf8_encode($row['post_title']);
-                        $post_author = utf8_encode($row['post_author']);
-                        $post_date = utf8_encode($row['post_date']);
-                        $post_image = utf8_encode($row['post_image']);
-                        $post_content = utf8_encode($row['post_content']);
+                        $post_title = $row['post_title'];
+                        $post_author = $row['post_author'];
+                        $post_date = $row['post_date'];
+                        $post_image = $row['post_image'];
+                        $post_content = $row['post_content'];
 
                         ?>                    
 
