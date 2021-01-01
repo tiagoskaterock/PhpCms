@@ -67,72 +67,89 @@
 
                 ?>
 
-
-
-
                 <!-- Blog Comments -->
+
+                <?php
+
+                if (isset($_POST['create_comment'])) {
+
+                    $the_post_id = $_GET['p_id'];
+
+                    $comment_author = utf8_decode($_POST['comment_author']);
+                    $comment_email = utf8_decode($_POST['comment_email']);
+                    $comment_content = utf8_decode($_POST['comment_content']);
+
+                    $query = "INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comment_email`, `comment_content`, `comment_status`, `comment_date`) 
+                    VALUES (NULL, $the_post_id, '{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved', now());";
+
+                    $create_comment_query = mysqli_query($connection, $query);
+
+                    if (!$create_comment_query) {
+                        die('QUERY FAILED' . mysqli_error($connection));
+                    }
+
+                }
+
+                ?>
 
                 <!-- Comments Form -->
                 <div class="well">
                     <h4>Leave a Comment:</h4>
-                    <form role="form">
+                    <form role="form" action="" method="post">
+
+
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <label for="author">Author</label>
+                            <input type="text" class="form-control" name="comment_author" id="author" required maxlength="255">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="comment_email" id="email" required maxlength="255">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comment">Comment</label>
+                            <textarea class="form-control" rows="3" name="comment_content" id="comment" required maxlength="1000"></textarea>
+                        </div>
+
+                        <button type="submit" name="create_comment" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
 
                 <hr>
 
-                <!-- Posted Comments -->
+                <!-- Show Posted Comments -->
 
-                <!-- Comment -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placehold.it/64x64" alt="">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Start Bootstrap
-                            <small>August 25, 2014 at 9:30 PM</small>
-                        </h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
+                <?php
+                    $query = "SELECT * FROM comments 
+                        WHERE comment_status = 'approved' 
+                        AND comment_post_id = $the_post_id
+                        ORDER BY comment_id DESC";
 
-                <!-- Comment -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placehold.it/64x64" alt="">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Start Bootstrap
-                            <small>August 25, 2014 at 9:30 PM</small>
-                        </h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        <!-- Nested Comment -->
+                    $select_all_comments_query = mysqli_query($connection, $query);
+
+                    while ($comment = mysqli_fetch_assoc($select_all_comments_query)) {
+
+                        ?>
+                        <!-- Comment -->
                         <div class="media">
                             <a class="pull-left" href="#">
                                 <img class="media-object" src="http://placehold.it/64x64" alt="">
                             </a>
                             <div class="media-body">
-                                <h4 class="media-heading">Nested Start Bootstrap
-                                    <small>August 25, 2014 at 9:30 PM</small>
+                                <h4 class="media-heading"><?= utf8_encode($comment['comment_author']) ?>
+                                <br>
+                                <small><?= utf8_encode($comment['comment_date']) ?></small>                                    
                                 </h4>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                                <p></p><?= utf8_encode($comment['comment_content']) ?></p>
                             </div>
                         </div>
-                        <!-- End Nested Comment -->
-                    </div>
-                </div>
+                        <?php
+                    }
 
-
-
-
-
-
-
-                
+                ?>                
 
             </div>
 

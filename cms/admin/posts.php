@@ -47,8 +47,6 @@
         </div><!-- col-lg-12 -->
 
       </div><!-- /.row -->
-
-      <?php show_post_buttons(); ?>
     
     </div><!-- /.container-fluid -->
   

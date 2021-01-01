@@ -17,7 +17,7 @@
 
                 <?php
 
-                    $query = "SELECT * FROM posts ORDER BY post_id DESC";
+                    $query = "SELECT * FROM posts WHERE post_status = 'Published' ORDER BY post_id DESC";
 
                     $select_all_posts_query = mysqli_query($connection, $query);
 

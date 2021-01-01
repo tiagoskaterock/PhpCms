@@ -1,7 +1,6 @@
 <table class="table table-bordered table-hover text-center" >
   <thead>
     <tr>
-      <!--<th style="text-align: center !important;">ID</th>-->
       <th style="text-align: center !important;">Author</th>
       <th style="text-align: center !important;">Comment</th>
       <th style="text-align: center !important;">Email</th>
@@ -15,16 +14,17 @@
   <tbody>
 
     <?php
+
+    	// query 1 for comments
       $query = "SELECT * FROM comments ORDER BY comment_id DESC;";
       $select_comments = mysqli_query($connection, $query);   
 
       while ($row = mysqli_fetch_assoc($select_comments)) { 
       	$comment_post_id = $row['comment_post_id'];
+      	$comment_id = $row['comment_id'];
         ?>       
 
         <tr>
-        	<!-- ID -->
-          <!--<td><?= $row['comment_id'] ?></td>-->
 
           <!-- Author -->
           <td><?= utf8_encode($row['comment_author']) ?></td>
@@ -39,19 +39,33 @@
           <td><?= $row['comment_status'] ?></td>
 
           <!-- In response to -->
-          <td><img src="../images/<?= $row['post_image'] ?>" alt="Post Image" style="width: 100px;"></td>
+          <?php
+          	// query 2 for post titles
+          	// recupera o título do post de acordo com FK $comment_post_id
+          	$query_2 = "SELECT * FROM posts WHERE post_id = $comment_post_id;";
+
+          	$select_post_title = mysqli_query($connection, $query_2);
+
+          	while ($row_2 = mysqli_fetch_assoc($select_post_title)) {
+          		$post_title = $row_2['post_title'];
+          		$post_id = $row_2['post_id'];
+          	}
+          ?>
+
+          <!-- post title -->
+          <td><a href="../post.php?p_id=<?= $post_id; ?>"><?= $post_title; ?></a></td>
 
           <!-- Date -->
           <td><?= utf8_encode($row['comment_date']) ?></td>
 
           <!-- Approve -->
-          <td><a href="">Approve</a></td>
+          <td><a href="comments.php?approve=<?= $comment_id ?>">Approve</a></td>
 
           <!-- unapprove -->
-          <td><a href="">Unapprove</a></td>
+          <td><a href="comments.php?unapprove=<?= $comment_id ?>">Unapprove</a></td>
 
           <!-- delete -->
-          <td><a href="">Delete</a></td>
+          <td><a href="comments.php?delete=<?= $comment_id ?>">Delete</a></td>
         </tr>
 
         <?php
@@ -65,12 +79,34 @@
 
 <?php
 
-	if (isset($_GET['delete'])) {
-		$the_post_id = $_GET['delete'];
-		$query = "DELETE FROM posts WHERE post_id = $the_post_id";
-		$delete_query = mysqli_query($connection, $query);
-		header("Location: posts.php");
+	// APROVE
+	if (isset($_GET['approve'])) {
+		echo $_GET['approve'];
+		$comment_id = $_GET['approve'];
+		$query = "UPDATE comments SET comment_status = 'approved' 
+							WHERE comment_id = $comment_id; ";
+		$update_query = mysqli_query($connection, $query);
+		header("Location: comments.php");
+		
 	}
 
+	// UNAPPROVE
+	if (isset($_GET['unapprove'])) {
+		echo $_GET['unapprove'];
+		$comment_id = $_GET['unapprove'];
+		$query = "UPDATE comments SET comment_status = 'unapproved' 
+							WHERE comment_id = $comment_id; ";
+		$update_query = mysqli_query($connection, $query);
+		header("Location: comments.php");
+		
+	}
+
+	// DELETE
+	if (isset($_GET['delete'])) {
+		$comment_id = $_GET['delete'];
+		$query = "DELETE FROM comments WHERE comment_id = $comment_id";
+		$delete_query = mysqli_query($connection, $query);
+		header("Location: comments.php");
+	}
 
 ?>

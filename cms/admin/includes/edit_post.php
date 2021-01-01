@@ -71,8 +71,6 @@
 
 		}
 
-
-
 	}	
 	
 ?>
@@ -134,9 +132,50 @@
 
 	<!-- Post Status -->
 	<div class="form-group">
+
+		<label for="post_status">Status</label><br>
+
+		<select name="post_status" id="post_status">
+
+			<?php
+
+				$query = "SELECT * FROM posts";
+
+	      $select_post = mysqli_query($connection, $query); 
+
+	      confirm_query($select_post);
+
+	    ?>
+
+	    <!-- draft -->
+	    <option 
+	    	<?php
+	    		if ($post_status == "Draft") {
+	    			echo "selected";
+	    		}
+	    	?>
+	    value="Draft">Draft</option>	
+
+	    <!-- published -->
+	    <option 
+	    	<?php
+	    		if ($post_status == "Published") {
+	    			echo "selected";
+	    		}
+	    	?>
+	    value="Published">Published</option>	        
+
+		</select>
+
+	</div>
+
+
+
+	<!--
+	<div class="form-group">
 		<label for="post_status">Post Status</label>
 		<input type="text" class="form-control" name="post_status" required value="<?= $post_status ?>">
-	</div>
+	</div>-->
 
 
 	<!-- Post Image -->
@@ -166,7 +205,6 @@
 	<div class="form-group">		
 		<input type="submit" name="update_post" value="Update Post" class="btn btn-primary">
 	</div>
-
 
 
 </form>
