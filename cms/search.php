@@ -18,9 +18,7 @@
                 <?php
 
                     if (isset($_POST['submit'])) {
-                        $search = $_POST['search'];
-
-                        echo $search;
+                        $search = $_POST['search'];                    
 
                         $query = "SELECT * FROM posts WHERE post_tags LIKE '%$search%' OR post_title LIKE '%$search%'
                             OR post_author LIKE '%$search%'
@@ -33,18 +31,20 @@
                         }
 
                         $count = mysqli_num_rows($search_query);
-                        echo $count;
+
+                        echo "<h4>Searching for: $search</h4>";
+                        echo "<h4>Results: $count</h4>";
 
                         if ($count == 0) {
                             echo "<h1>NO RESULT</h1>";
                         }
                         else{
                             while ($row = mysqli_fetch_assoc($search_query)) {
-                                $post_title = utf8_encode($row['post_title']);
-                                $post_author = utf8_encode($row['post_author']);
+                                $post_title = $row['post_title'];
+                                $post_author = $row['post_author'];
                                 $post_date = utf8_encode($row['post_date']);
-                                $post_image = utf8_encode($row['post_image']);
-                                $post_content = utf8_encode($row['post_content']);
+                                $post_image = $row['post_image'];
+                                $post_content = substr($row['post_content'], 0, 100) ;
 
                                 ?>                    
 
@@ -66,7 +66,7 @@
 
                                 <hr>
 
-                                <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
+                                <img style="width: 50%;" class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
 
                                 <hr>
 
