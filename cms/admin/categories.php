@@ -16,7 +16,7 @@
           </h1>
 
           <!-- LEFT -->
-          <div class="col-xs-6">
+          <div class="col-xs-4">
 
             <?php insert_categories(); ?>
 
@@ -25,7 +25,7 @@
 
               <label for="cat_title">Add Category</label>
               <div class="form-group">
-                <input type="text" name="cat_title">
+                <input type="text" name="cat_title" class="form-control">
               </div>
 
               <div class="form-group">
@@ -47,12 +47,12 @@
 
 
           <!-- RIGHT -->
-          <div class="col-xs-6">
-            <table class="table table-bordered table-hover">
+          <div class="col-xs-8">
+            <table class="table table-bordered table-hover text-center">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Category Title</th>
+                  <th style="text-align: center !important;">Category Title</th>
+                  <th style="text-align: center !important;" colspan="2">Action</th>
                 </tr>
               </thead>
 

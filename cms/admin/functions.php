@@ -43,8 +43,6 @@
 
     while ($row = mysqli_fetch_assoc($select_categories)) { ?>
       <tr>
-        <!-- ID -->
-        <td><?= $row['cat_id'] ?></td>
 
         <!-- Categoria -->
         <td><?= $row['cat_title'] ?></td>                    
@@ -115,5 +113,24 @@
 
   }
 
+  function show_user_buttons(){
+    ?>
+      <!-- Buttons -->
+      <div class="form-group">  
+
+        <!-- Add New User Button -->
+        <a href="users.php?source=add_user">
+          <button class="btn btn-primary">Create New User</button>
+        </a>
+
+        <!-- See All Users Button -->
+        <a href="users.php">
+          <button class="btn btn-primary">See All Users</button>
+        </a>
+      </div>
+      <!-- End Buttons -->
+    <?php
+
+  }
 
 ?>

@@ -39,13 +39,12 @@
 		<input type="text" class="form-control" name="title" required>
 	</div>
 
-
 	<!-- Post Category ID -->
 	<div class="form-group">
 
 		<label for="post_category_id">Post Category ID</label><br>
 
-		<select name="post_category" id="post_category">
+		<select name="post_category" id="post_category" class="form-control">
 
 		<?php
 
@@ -79,8 +78,17 @@
 
 	<!-- Post Status -->
 	<div class="form-group">
-		<label for="post_status">Post Status</label>
-		<input type="text" class="form-control" name="post_status" required>
+
+		<label for="post_status">Status</label><br>
+
+		<select name="post_status" id="post_status" class="form-control">
+
+	    <option value="Draft">Draft</option>	
+
+	    <option value="Published">Published</option>	        
+
+		</select>
+
 	</div>
 
 
@@ -107,7 +115,7 @@
 
 	<!-- Submit -->
 	<div class="form-group">		
-		<input type="submit" name="create_post" value="Publish Post" class="btn btn-primary">
+		<input type="submit" name="create_post" value="Save Post" class="btn btn-primary">
 	</div>
 
 

@@ -90,7 +90,7 @@
 
 		<label for="post_category_id">Category</label><br>
 
-		<select name="post_category" id="post_category">
+		<select name="post_category" id="post_category" class="form-control">
 
 		<?php
 
@@ -135,7 +135,7 @@
 
 		<label for="post_status">Status</label><br>
 
-		<select name="post_status" id="post_status">
+		<select name="post_status" id="post_status" class="form-control">
 
 			<?php
 

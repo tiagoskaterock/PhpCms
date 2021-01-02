@@ -15,7 +15,7 @@
       
         	<h1>Users</h1>
 
-          <?php //show_post_buttons(); ?>
+          <?php show_user_buttons(); ?>
           
           <?php 
 

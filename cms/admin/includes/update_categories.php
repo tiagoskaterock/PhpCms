@@ -20,7 +20,7 @@
                     ?>
                       <div class="form-group" >
                         <input value="<?php if(isset($cat_title)){echo $cat_title;} ?>"
-                        type="text" name="cat_title" class="form-group" id="update_campo">  
+                        type="text" name="cat_title" class="form-control" id="update_campo">  
 
 
                         <?php
