@@ -1,4 +1,4 @@
-<div class="col-md-4" style="position: fixed; right: 25px; top: 100px;">
+<div class="col-md-4" style="position: -webkit-sticky; position: sticky; top: -70px;">
 
     <!-- Blog Search Well -->
     <div class="well">
@@ -19,6 +19,46 @@
         </form><!-- search for -->
         <!-- /.input-group -->
     </div>
+
+
+
+
+
+
+
+    <!-- Login -->
+    <div class="well">
+
+        <h4>Login</h4>
+
+        <form action="includes/login.php" method="post">
+            
+            <div class="form-group">
+                <!-- name -->
+                <input name="user_name" type="text" class="form-control" placeholder="Enter User Name" id="user_name" style="margin-bottom: 5px;"> 
+            </div>
+
+            <div class="input-group">
+                <!-- password -->
+                <input name="password" type="password" class="form-control" placeholder="Enter Password" id="password">  
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" name="login" type="submit">
+                        Submit
+                    </button>
+                </span>          
+            </div>
+
+        </form>
+        <!-- /.input-group -->
+    </div>
+    <!-- end login -->
+
+
+
+
+
+
+
 
     <!-- Blog Categories Well -->
     <div class="well">

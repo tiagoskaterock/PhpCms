@@ -4,20 +4,17 @@
 
 <?php ob_start(); ?>
 
-<?php session_start(); ?>
-
-<?php 
-
-  if (isset($_SESSION['user_role'])) {
-    # code...
-  }    
-  else{
-    //header("location: ../index.php");
+<?php
+  if(!isset($_SESSION)) 
+  { 
+      session_start(); 
+  } 
+  
+  // not admin go back to blog
+  if ($_SESSION['user_role'] != "admin") {
+    header("Location: ../index.php");
   }
-
-
-
-
+  
 ?>
 
 <!DOCTYPE html>

@@ -31,13 +31,12 @@
                 <a href="category.php?category=<?= $the_cat_id ?>"><?php echo $row['cat_title']; ?></a>
               </li>
             <?php
-          }
+          }          
         ?>
 
-          <li>
-              <a href="admin">Admin</a>
-          </li>
+        <li><a href="admin/index.php">Admin</a></li>
 
+        
           <!--
           <li>
               <a href="#">Services</a>
