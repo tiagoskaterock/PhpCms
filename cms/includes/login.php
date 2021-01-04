@@ -22,12 +22,12 @@
 		}
 
 		while ($row = mysqli_fetch_assoc($select_user_query)) {
-			$user_id = $row['user_id'];
+			$db_user_id = $row['user_id'];
 			$db_user_name = $row['user_name'];
 			$db_user_password = $row['user_password'];
 			$db_first_name = $row['first_name'];
 			$db_last_name = $row['last_name'];
-			$user_email = $row['user_email'];
+			$db_user_email = $row['user_email'];
 			$user_image = $row['user_image'];
 			$db_user_role = $row['user_role'];
 			$rand_salt = $row['user_id'];
@@ -39,11 +39,16 @@
 		}
 		// right username AND right password do login
 		else if ($username === $db_user_name && $password === $db_user_password) {
+			$_SESSION['user_id'] = $db_user_id;
 			$_SESSION['username'] = $db_user_name;
 			$_SESSION['first_name'] = $db_first_name;
 			$_SESSION['last_name'] = $db_last_name;
 			$_SESSION['password'] = $db_user_password;
 			$_SESSION['user_role'] = $db_user_role;		
+			$_SESSION['user_email'] = $db_user_email;		
+			$_SESSION['user_role'] = $db_user_role;		
+			$_SESSION['user_password'] = $db_user_password;		
+
 
 			header("Location: ../admin");
 				
