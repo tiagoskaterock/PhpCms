@@ -7,14 +7,7 @@
 		$last_name = $_POST['last_name'];
 		$user_email = $_POST['user_email'];
 		$user_role = $_POST['user_role'];
-		$user_password = $_POST['user_password'];
-
-		echo "<br>" . $user_name;
-		echo "<br>" . $first_name;
-		echo "<br>" . $last_name;
-		echo "<br>" . $user_email;
-		echo "<br>" . $user_role;
-		echo "<br>" . $user_password;		
+		$user_password = $_POST['user_password'];	
 		
 		$query = "INSERT INTO `users` (`user_id`, `user_name`, `user_password`, `first_name`, `last_name`, `user_email`, `user_image`, `user_role`, `rand_salt`) 
 			VALUES (NULL, '{$user_name}', '{$user_password}', '{$first_name}', '{$last_name}', '{$user_email}', '', '{$user_role}', '')";
@@ -23,7 +16,9 @@
 
 		confirm_query($create_user_query);
 
-		header("Location: users.php");
+		echo "<h4>User created: " . " $user_name " . "<br><a href='users.php'>View Users</a></h4>";
+
+		//header("Location: users.php");
 
 	}
 

@@ -34,7 +34,7 @@
 
                         ?>                    
 
-                        <!-- First Blog Post -->
+                        <!-- Blog Post -->
                         <h2>
                             <a href="#"><?php echo $post_title; ?></a>
                         </h2>
@@ -67,8 +67,7 @@
 
                 ?>
 
-                <!-- Blog Comments -->
-
+                <!-- Blog Comments Query-->
                 <?php
 
                 if (isset($_POST['create_comment'])) {
@@ -89,38 +88,10 @@
                     }
 
                 }
-
                 ?>
-
-                <!-- Comments Form -->
-                <div class="well">
-                    <h4>Leave a Comment:</h4>
-                    <form role="form" action="" method="post">
-
-
-                        <div class="form-group">
-                            <label for="author">Author</label>
-                            <input type="text" class="form-control" name="comment_author" id="author" required maxlength="255">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" name="comment_email" id="email" required maxlength="255">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="comment">Comment</label>
-                            <textarea class="form-control" rows="3" name="comment_content" id="comment" required maxlength="1000"></textarea>
-                        </div>
-
-                        <button type="submit" name="create_comment" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-
-                <hr>
+                <!-- end query post comments -->
 
                 <!-- Show Posted Comments -->
-
                 <?php
                     $query = "SELECT * FROM comments 
                         WHERE comment_status = 'approved' 
@@ -153,7 +124,36 @@
                         <?php
                     }
 
-                ?>                
+                ?> 
+                <!-- end comments -->  
+
+                <hr>                             
+
+                <!-- Comments Form -->
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form" action="" method="post">
+
+
+                        <div class="form-group">
+                            <label for="author">Author</label>
+                            <input type="text" class="form-control" name="comment_author" id="author" required maxlength="255">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="comment_email" id="email" required maxlength="255">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comment">Comment</label>
+                            <textarea class="form-control" rows="3" name="comment_content" id="comment" required maxlength="1000"></textarea>
+                        </div>
+
+                        <button type="submit" name="create_comment" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <!-- end comments form -->
 
             </div>
 
