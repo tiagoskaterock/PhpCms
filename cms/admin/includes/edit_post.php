@@ -196,8 +196,8 @@
 	<!-- Post Content -->
 	<div class="form-group">
 		<label for="post_content">Post Content</label>
-		<textarea type="text" class="form-control" name="post_content" required cols="30" rows="5"><?= $post_content ?>			
-		</textarea>
+
+		<textarea type="text" class="form-control" name="post_content" required cols="30" rows="5" id="editor"><?= $post_content ?></textarea>
 	</div>
 
 

@@ -40,6 +40,7 @@
                         }
                         else{
                             while ($row = mysqli_fetch_assoc($search_query)) {
+                                $post_id = $row['post_id'];
                                 $post_title = $row['post_title'];
                                 $post_author = $row['post_author'];
                                 $post_date = utf8_encode($row['post_date']);
@@ -50,7 +51,7 @@
 
                                 <!-- First Blog Post -->
                                 <h2>
-                                    <a href="#"><?php echo $post_title; ?></a>
+                                    <a href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a>
                                 </h2>
 
                                 <p class="lead">
@@ -66,7 +67,9 @@
 
                                 <hr>
 
-                                <img style="width: 50%;" class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
+                                <a href="post.php?p_id=<?php echo $post_id ?>">
+                                    <img style="width: 50%;" class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
+                                </a>
 
                                 <hr>
 
@@ -74,7 +77,7 @@
                                     <?php echo $post_content; ?>
                                 </p>
 
-                                <a class="btn btn-primary" href="#">
+                                <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id ?>">
                                     Read More 
                                     <span class="glyphicon glyphicon-chevron-right">
                                         

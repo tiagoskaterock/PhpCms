@@ -109,7 +109,9 @@
 	<!-- Post Content -->
 	<div class="form-group">
 		<label for="post_content">Post Content</label>
-		<textarea class="form-control" name="post_content" required cols="30" rows="5"></textarea>
+		<div id="editor"></div>
+		<!--
+		<textarea class="form-control" name="post_content" required cols="30" rows="5" id=""></textarea>-->
 	</div>
 
 
