@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 03-Jan-2021 às 17:15
+-- Tempo de geração: 05-Jan-2021 às 00:32
 -- Versão do servidor: 5.7.32-0ubuntu0.18.04.1
 -- versão do PHP: 7.4.13
 
@@ -71,7 +71,8 @@ INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comm
 (21, 13, 'Tony Hawk', 'tony@skate.com', 'Hi Rod! You are awesome!', 'approved', '2021-01-01'),
 (22, 18, 'Kamilla', 'kamillinh@hotmail.com', 'Nossa, genti! Eu amo Zelda! Continuem com o bom trabalho! S2', 'approved', '2021-01-01'),
 (23, 21, 'Lars Ulrich', 'lars@metallica.rock', 'Eu diria que cinco são melhores que duas!', 'approved', '2021-01-02'),
-(24, 23, 'Drogba', 'drogba@chelsea.com', 'Esta foto do Lionel é muito legal!', 'approved', '2021-01-03');
+(24, 23, 'Drogba', 'drogba@chelsea.com', 'Esta foto do Lionel é muito legal!', 'approved', '2021-01-03'),
+(25, 23, 'Maradona', 'diego@boca.com', 'Me gusta est chico!', 'approved', '2021-01-04');
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,6 @@ INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`,
 (16, 26, 'Boobs', 'James Hetfield', '2020-12-31', 'sexy-2.gif', 'Boobs are really awesome! 			\r\n					\r\n					\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n		', 'boobs, tits, sexy, girl', 0, 'Published'),
 (17, 27, 'Mario', 'Mario Mario', '2020-12-31', 'mario.jpeg', 'Mario is amazing!			\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n					\r\n		', 'mario, nintendo, games', 0, 'Published'),
 (18, 27, 'Zelda Story', 'Link', '2020-12-31', 'zelda-2.jpeg', 'I really love Princess Zelda!!!			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n					\r\n					\r\n					\r\n		', 'zelda, link, ganon, nintendo', 0, 'Published'),
-(19, 27, 'Metroid', 'Samus Aran', '2020-12-31', 'metroid.jpeg', 'Metroid games are really wonderfull!			\r\n		\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.			\r\n					\r\n					\r\n					\r\n					\r\n					\r\n		', 'metroid, samus, ridley', 0, 'Published'),
 (20, 26, 'Carolina, a Menina Linda', 'Kirk Wammet', '2020-12-31', 'brunette.gif', 'Carolina, a menina mais linda do Brasil, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.			\r\n					\r\n		', 'girl, linda, brunette', 0, 'Published'),
 (21, 26, 'Two is Better Than One', 'Lemmy Kilmister', '2020-12-31', 'girls-2.gif', 'Duas sÃ£o melhores do que sÃ³ uma, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.			\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n		', 'girls, brunette, two, pair', 0, 'Published'),
 (22, 24, 'Tony Hawk, a Living Legend', 'Steve Berra', '2021-01-02', 'tony.jpg', 'Tony Hawk in more than a Skateboarder, he is a Mith, a living legend Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.			\r\n					\r\n		', 'tony, hawk, skate, legend, vertical, sports', 4, 'Published'),
@@ -136,10 +136,16 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_password`, `first_name`, `last_name`, `user_email`, `user_image`, `user_role`, `rand_salt`) VALUES
 (1, 'rico', '123', 'Rico', 'Suave', 'ricosuave@email.com', '', 'admin', ''),
-(3, 'Marianne da Silva', '123123', 'Marianne', 'Silva', 'marianne@email.com', '', 'subscriber', ''),
-(5, 'samus_aran', '123', 'Samus', 'Aran', 'samus@metroid.com', '', 'admin', ''),
-(7, 'Princess Peach', '123', 'Peach', 'Toadstool', 'peach@mario.com', '', 'admin', ''),
-(11, 'Messi', '123', 'Lionel', 'Messi', 'messi@barcelona.com', '', 'subscriber', '');
+(3, 'mary', '123', 'Marianne', 'Silva Santos', 'marianne@email.com', '', 'subscriber', ''),
+(5, 'samus_aran123', '123456', 'Samus12', 'Aran12', 'samus@metroid.com1', '', 'admin', ''),
+(7, 'Princess Peach456', '123456', 'Peach456', 'Toadstool456', 'peach@mario.com456', '', 'admin', ''),
+(11, 'Messi', '123', 'Lionel', 'Messi', 'messi@barcelona.com', '', 'subscriber', ''),
+(12, 'james', '123', 'james', 'hunt', 'james@f1.com', '', 'admin', ''),
+(13, 'niki', '123', 'Nicolas', 'Lauda', 'niki@ferrari.com', '', 'admin', ''),
+(14, 'senna', '123', 'Ayrton', 'Silva', 'senna@f1.com', '', 'admin', ''),
+(15, 'joey', '123', 'Joey', 'Ramone', 'joey@ramones.com', '', 'admin', ''),
+(16, 'axl', '123', 'Axl', 'Rose', 'axl@guns.com', '', 'admin', ''),
+(17, 'kurt', '123', 'Kurt', 'Cobain', 'kurt@nirvana.com', '', 'admin', '');
 
 --
 -- Índices para tabelas despejadas
@@ -183,7 +189,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT de tabela `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `comment_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `posts`
@@ -195,7 +201,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
