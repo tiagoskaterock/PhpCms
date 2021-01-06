@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 05-Jan-2021 às 00:32
+-- Tempo de geração: 06-Jan-2021 às 00:30
 -- Versão do servidor: 5.7.32-0ubuntu0.18.04.1
 -- versão do PHP: 7.4.13
 
@@ -109,8 +109,17 @@ INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`,
 (18, 27, 'Zelda Story', 'Link', '2020-12-31', 'zelda-2.jpeg', 'I really love Princess Zelda!!!			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n					\r\n					\r\n					\r\n		', 'zelda, link, ganon, nintendo', 0, 'Published'),
 (20, 26, 'Carolina, a Menina Linda', 'Kirk Wammet', '2020-12-31', 'brunette.gif', 'Carolina, a menina mais linda do Brasil, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.			\r\n					\r\n		', 'girl, linda, brunette', 0, 'Published'),
 (21, 26, 'Two is Better Than One', 'Lemmy Kilmister', '2020-12-31', 'girls-2.gif', 'Duas sÃ£o melhores do que sÃ³ uma, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.			\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n					\r\n		', 'girls, brunette, two, pair', 0, 'Published'),
-(22, 24, 'Tony Hawk, a Living Legend', 'Steve Berra', '2021-01-02', 'tony.jpg', 'Tony Hawk in more than a Skateboarder, he is a Mith, a living legend Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.			\r\n					\r\n		', 'tony, hawk, skate, legend, vertical, sports', 4, 'Published'),
-(23, 25, 'Messi, a Football God', 'Neymar Jr.', '2021-01-02', 'messi.gif', 'Messi Ã© o melhor que jÃ¡ houve, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.			\r\n					\r\n		', 'messi, soccer, football, sports', 4, 'Published');
+(22, 24, 'Tony Hawk, a Living Legend', 'Steve Berra', '2021-01-02', 'tony.jpg', '<h2>Tony Hawk in more than a Skateboarder, he is a Mith, a living legend&nbsp;</h2><h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>', 'tony, hawk, skate, legend, vertical, sports', 4, 'Published'),
+(23, 25, 'Messi, a Football God', 'Neymar Jr.', '2021-01-02', 'messi.gif', '<h4>Messi Ã© o melhor que jÃ¡ houve,&nbsp;</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', 'messi, soccer, football, sports', 4, 'Published'),
+(24, 11, 'TiagÃ£o', 'Juliana', '2021-01-05', 'tiago2.jpg', '<h2>OlÃ¡, pessoas!</h2><h3>Vamos!</h3><p>EstÃ¡ na hora de sermos felizes para caralho!</p><p>issssaaaa!!!</p>', 'juliana, tiago, jennifer', 4, 'Published'),
+(27, 11, 'Atividade de Ã‰tica - Primeira Semana', 'Steve Berra', '2021-01-05', 'girls.gif', '<p>tretretertretert</p><p>&nbsp;</p>', 'tony, hawk, skate, legend, vertical, sports', 4, 'Draft'),
+(28, 11, 'Atividade de Ã‰tica - Primeira Semana', 'Neymar Jr.', '2021-01-05', 'messi.jpg', '<p>treter</p>', 'messi, soccer, football, sports', 4, 'Draft'),
+(29, 26, 'Carta para si mesmo, Tiago Lemes P. Bordin', 'Steve Berra', '2021-01-05', 'mario.jpeg', '<p>tretre</p>', 'tony, hawk, skate, legend, vertical, sports', 4, 'Published'),
+(30, 27, 'Atividade de Ã‰tica - Primeira Semana', 'Neymar Jr.', '2021-01-05', 'tiago4.jpg', '', 'messi, soccer, football, sports', 4, 'Draft'),
+(31, 11, 'Atividade de Ã‰tica - Primeira Semana', 'Neymar Jr.', '2021-01-05', 'tiago.jpg', '', 'tony, hawk, skate, legend, vertical, sports', 4, 'Draft'),
+(32, 11, 'Atividade de Ã‰tica - Primeira Semana', 'Steve Berra', '2021-01-05', 'sexy.gif', '<p>Digite seu texto aqui...</p>', 'messi, soccer, football, sports', 4, 'Draft'),
+(33, 11, 'Atividade de Ã‰tica - Primeira Semana', 'Steve Berra', '2021-01-05', 'tiago6.jpg', '<h3>Digite seu texto aqui...</h3><h4>tyutyutyutyutyutyutyutyu</h4>', 'tony, hawk, skate, legend, vertical, sports', 4, 'Published'),
+(36, 11, 'ghj', 'ghj', '2021-01-06', 'sexy.gif', '<p>yyyyeeeeaaaahhhyyyy!!!</p>', 'gjh', 4, 'Published');
 
 -- --------------------------------------------------------
 
@@ -195,7 +204,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT de tabela `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de tabela `users`

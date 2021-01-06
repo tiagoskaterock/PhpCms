@@ -12,6 +12,11 @@
 
 		$post_tags = $_POST['post_tags'];
 		$post_content = $_POST['post_content'];
+
+		if ($post_content == "") {
+			$post_content = "No content yet, please write something";
+		}
+			
 		$post_date = date('d-m-y');
 		$post_comment_count = 4;
 

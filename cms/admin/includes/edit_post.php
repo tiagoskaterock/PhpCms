@@ -40,6 +40,10 @@
 
 			$post_content = $_POST['post_content'];
 
+			if ($post_content == "") {
+				$post_content = "No content yet, please write something";
+			}
+
 			$post_tags = $_POST['post_tags'];
 
 			move_uploaded_file($post_image_tmp, "../images/$post_image");
@@ -67,7 +71,24 @@
 				die('QUERY FAILED: '. mysqli_error($connection));
 			}
 
-			header("Location: posts.php");
+			?>
+
+			<p class="bg-success">
+				Post Updated
+				<a href="../post.php?p_id=<?php echo $post_id ?>">
+				 - View Post
+				</a>
+
+				<a href="posts.php">
+					- Edit another post
+				</a>
+
+			</p>
+
+
+			<?php
+
+			//header("Location: posts.php");
 
 		}
 

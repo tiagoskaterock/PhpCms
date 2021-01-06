@@ -56,9 +56,9 @@
 
                         <hr>
 
-                        <p>
+                        <div>
                             <?php echo $post_content; ?>
-                        </p>
+                        </div>
 
                         <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id ?>">
                             Read More 
