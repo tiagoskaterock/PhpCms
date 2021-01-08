@@ -3,8 +3,6 @@
 
               <label for="cat_title">Edit Category</label>
 
-
-
               <?php 
 
                 if (isset($_GET['edit'])) {

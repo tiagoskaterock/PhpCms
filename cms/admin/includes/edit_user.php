@@ -42,25 +42,25 @@
 
 ?>
 
-<h2>Edit User</h2>
+<h2>Editar Usuário</h2>
 
 <form action="" method="post" enctype="multipart/form-data">
 	
 	<!-- Name -->
 	<div class="form-group">
-		<label for="user_name">User Name</label>
+		<label for="user_name">Usuário</label>
 		<input type="text" class="form-control" name="user_name" required id="user_name" value="<?= $name ?>">
 	</div>
 
 	<!-- First Name -->
 	<div class="form-group">
-		<label for="first_name">First Name</label>
+		<label for="first_name">Primeiro Nome</label>
 		<input type="text" class="form-control" name="first_name" required id="first_name" value="<?= $first ?>">
 	</div>
 
 	<!-- Last Name -->
 	<div class="form-group">
-		<label for="last_name">Last Name</label>
+		<label for="last_name">Sobrenome</label>
 		<input type="text" class="form-control" name="last_name" required id="last_name" value="<?= $last ?>">
 	</div>
 
@@ -73,7 +73,7 @@
 	<!-- Role -->
 	<div class="form-group">
 
-		<label for="user_role">Role</label><br>
+		<label for="user_role">Papel</label><br>
 
 		<select name="user_role" id="user_role" class="form-control">
 
@@ -94,7 +94,7 @@
 	    			echo "selected";
 	    		}
 	    	?>
-	    value="admin">Admin</option>	
+	    value="admin">Administrador</option>	
 
 	    <!-- subscriber -->
 	    <option 
@@ -103,7 +103,7 @@
 	    			echo "selected";
 	    		}
 	    	?>
-	    value="subscriber">Subscriber</option>	        
+	    value="subscriber">Inscrito</option>	        
 
 		</select>
 
@@ -111,7 +111,7 @@
 
 	<!-- Password -->
 	<div class="form-group">
-		<label for="user_password">Password</label>
+		<label for="user_password">Senha</label>
 		<input type="password" class="form-control" name="user_password" required id="user_password" value="<?= $password ?>">
 	</div>
 

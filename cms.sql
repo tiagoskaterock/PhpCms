@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 06-Jan-2021 às 00:30
+-- Tempo de geração: 08-Jan-2021 às 01:38
 -- Versão do servidor: 5.7.32-0ubuntu0.18.04.1
 -- versão do PHP: 7.4.13
 
@@ -69,10 +69,11 @@ INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comm
 (19, 12, 'Joanne', 'joa345@email.com', 'This is a piece of comment by Joanne...', 'approved', '2021-01-01'),
 (20, 11, 'Mariana', 'mary@lindinha.com', 'Olá, seu lindo! Estou doidinha para te conhecer! Me liga!', 'approved', '2021-01-01'),
 (21, 13, 'Tony Hawk', 'tony@skate.com', 'Hi Rod! You are awesome!', 'approved', '2021-01-01'),
-(22, 18, 'Kamilla', 'kamillinh@hotmail.com', 'Nossa, genti! Eu amo Zelda! Continuem com o bom trabalho! S2', 'approved', '2021-01-01'),
+(22, 18, 'Kamilla', 'kamillinh@hotmail.com', 'Nossa, genti! Eu amo Zelda! Continuem com o bom trabalho! S2', 'unapproved', '2021-01-01'),
 (23, 21, 'Lars Ulrich', 'lars@metallica.rock', 'Eu diria que cinco são melhores que duas!', 'approved', '2021-01-02'),
 (24, 23, 'Drogba', 'drogba@chelsea.com', 'Esta foto do Lionel é muito legal!', 'approved', '2021-01-03'),
-(25, 23, 'Maradona', 'diego@boca.com', 'Me gusta est chico!', 'approved', '2021-01-04');
+(25, 23, 'Maradona', 'diego@boca.com', 'Me gusta est chico!', 'approved', '2021-01-04'),
+(26, 36, 'Lars Ulrich', 'lars@metallica.rock', 'Que loira hein meu guri!', 'approved', '2021-01-08');
 
 -- --------------------------------------------------------
 
@@ -117,9 +118,9 @@ INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`,
 (29, 26, 'Carta para si mesmo, Tiago Lemes P. Bordin', 'Steve Berra', '2021-01-05', 'mario.jpeg', '<p>tretre</p>', 'tony, hawk, skate, legend, vertical, sports', 4, 'Published'),
 (30, 27, 'Atividade de Ã‰tica - Primeira Semana', 'Neymar Jr.', '2021-01-05', 'tiago4.jpg', '', 'messi, soccer, football, sports', 4, 'Draft'),
 (31, 11, 'Atividade de Ã‰tica - Primeira Semana', 'Neymar Jr.', '2021-01-05', 'tiago.jpg', '', 'tony, hawk, skate, legend, vertical, sports', 4, 'Draft'),
-(32, 11, 'Atividade de Ã‰tica - Primeira Semana', 'Steve Berra', '2021-01-05', 'sexy.gif', '<p>Digite seu texto aqui...</p>', 'messi, soccer, football, sports', 4, 'Draft'),
+(32, 24, 'Atividade de Ã‰tica - Primeira Semana', 'Steve Berra', '2021-01-05', 'skate.jpeg', '<h2><strong>Skate</strong></h2><h3><strong>Legal</strong></h3><p><i>Yeah!</i></p><p>&nbsp;</p>', 'messi, soccer, football, sports', 4, 'Published'),
 (33, 11, 'Atividade de Ã‰tica - Primeira Semana', 'Steve Berra', '2021-01-05', 'tiago6.jpg', '<h3>Digite seu texto aqui...</h3><h4>tyutyutyutyutyutyutyutyu</h4>', 'tony, hawk, skate, legend, vertical, sports', 4, 'Published'),
-(36, 11, 'ghj', 'ghj', '2021-01-06', 'sexy.gif', '<p>yyyyeeeeaaaahhhyyyy!!!</p>', 'gjh', 4, 'Published');
+(36, 11, 'Loira Linda', 'Tiago GatÃ£o', '2021-01-06', 'sexy.gif', '<p>Yeah, a loira sabe o que faz!!!</p>', 'linda, loira, gostosa', 4, 'Published');
 
 -- --------------------------------------------------------
 
@@ -198,7 +199,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT de tabela `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `comment_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de tabela `posts`

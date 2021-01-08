@@ -34,20 +34,20 @@
 
 ?>
 
-<h2>Create a New Post</h2>
+<h2>Criar uma Nova Postagem</h2>
 
 <form action="" method="post" enctype="multipart/form-data">
 	
 	<!-- Título -->
 	<div class="form-group">
-		<label for="title">Post Title</label>
+		<label for="title">Título</label>
 		<input type="text" class="form-control" name="title" required>
 	</div>
 
 	<!-- Post Category ID -->
 	<div class="form-group">
 
-		<label for="post_category_id">Post Category ID</label><br>
+		<label for="post_category_id">Categoria</label><br>
 
 		<select name="post_category" id="post_category" class="form-control">
 
@@ -76,7 +76,7 @@
 
 	<!-- Post Author -->
 	<div class="form-group">
-		<label for="post_author">Post Author</label>
+		<label for="post_author">Autor</label>
 		<input type="text" class="form-control" name="post_author" required>
 	</div>
 
@@ -88,9 +88,9 @@
 
 		<select name="post_status" id="post_status" class="form-control">
 
-	    <option value="Draft">Draft</option>	
+	    <option value="Draft">Rascunho</option>	
 
-	    <option value="Published">Published</option>	        
+	    <option value="Published">Publicada</option>	        
 
 		</select>
 
@@ -99,21 +99,21 @@
 
 	<!-- Post Image -->
 	<div class="form-group">
-		<label for="post_image">Post Image</label>
+		<label for="post_image">Imagem</label>
 		<input type="file" class="form-control" name="post_image" required>
 	</div>
 
 
 	<!-- Post Tags -->
 	<div class="form-group">
-		<label for="post_tags">Post Tags</label>
+		<label for="post_tags">Tags</label>
 		<input type="text" class="form-control" name="post_tags" required>
 	</div>
 
 
 	<!-- Post Content -->
 	<div class="form-group">
-		<label>Post Content</label>
+		<label>Conteúdo</label>
 		<!--<div id="editor" name="post_content"></div>-->
 		
 		<textarea class="form-control" name="post_content" required cols="30" rows="5" id="editor">Digite seu texto aqui...</textarea>

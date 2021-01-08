@@ -60,7 +60,6 @@
 				}
 			}
 
-
 			$query = "UPDATE `posts` SET `post_category_id` = $post_category_id, `post_title` = '$post_title', `post_author` = '$post_author', `post_image` = '$post_image', `post_content` = '$post_content', `post_tags` = '$post_tags', `post_status` = '$post_status' WHERE `posts`.`post_id` = $the_post_id; ";
 
 			$update_post = mysqli_query($connection, $query);
@@ -74,13 +73,9 @@
 			?>
 
 			<p class="bg-success">
-				Post Updated
+				Postagem Atualizada
 				<a href="../post.php?p_id=<?php echo $post_id ?>">
-				 - View Post
-				</a>
-
-				<a href="posts.php">
-					- Edit another post
+				 - View Postagem
 				</a>
 
 			</p>
@@ -101,7 +96,7 @@
 	
 	<!-- Título -->
 	<div class="form-group">
-		<label for="title">Post Title</label>
+		<label for="title">Título</label>
 		<input type="text" class="form-control" name="post_title" required value="<?= $post_title ?>">
 	</div>
 
@@ -109,7 +104,7 @@
 	<!-- Post Category ID -->
 	<div class="form-group">
 
-		<label for="post_category_id">Category</label><br>
+		<label for="post_category_id">Categoria</label><br>
 
 		<select name="post_category" id="post_category" class="form-control">
 
@@ -146,7 +141,7 @@
 
 	<!-- Post Author -->
 	<div class="form-group">
-		<label for="post_author">Post Author</label>
+		<label for="post_author">Autor</label>
 		<input type="text" class="form-control" name="post_author" required value="<?= $post_author ?>">
 	</div>
 
@@ -175,7 +170,7 @@
 	    			echo "selected";
 	    		}
 	    	?>
-	    value="Draft">Draft</option>	
+	    value="Draft">Rascunho</option>	
 
 	    <!-- published -->
 	    <option 
@@ -184,7 +179,7 @@
 	    			echo "selected";
 	    		}
 	    	?>
-	    value="Published">Published</option>	        
+	    value="Published">Publicada</option>	        
 
 		</select>
 
@@ -201,7 +196,7 @@
 
 	<!-- Post Image -->
 	<div class="form-group">
-		<label for="post_image">Post Image</label><br>
+		<label for="post_image">Imagem</label><br>
 		<img src="../images/<?= $post_image ?>" alt="Image" style="width: 100px">
 		<input type="file" class="form-control" name="post_image" value="../images/<?= $post_image ?>">
 	</div>
@@ -209,14 +204,14 @@
 
 	<!-- Post Tags -->
 	<div class="form-group">
-		<label for="post_tags">Post Tags</label>
+		<label for="post_tags">Tags</label>
 		<input type="text" class="form-control" name="post_tags" required value="<?= $post_tags ?>">
 	</div>
 
 
 	<!-- Post Content -->
 	<div class="form-group">
-		<label for="post_content">Post Content</label>
+		<label for="post_content">Conteúdo</label>
 
 		<textarea type="text" class="form-control" name="post_content" required cols="30" rows="5" id="editor"><?= $post_content ?></textarea>
 	</div>

@@ -1,12 +1,12 @@
 <table class="table table-bordered table-hover text-center" >
   <thead>
     <tr>
-      <th style="text-align: center !important;">User Name</th>
-      <th style="text-align: center !important;">First Name</th>
-      <th style="text-align: center !important;">Last Name</th>
+      <th style="text-align: center !important;">Usuário</th>
+      <th style="text-align: center !important;">Primeiro Nome</th>
+      <th style="text-align: center !important;">Sobrenome</th>
       <th style="text-align: center !important;">Email</th>
-      <th style="text-align: center !important;">Role</th>      
-      <th style="text-align: center !important;" colspan="2">Action</th>      
+      <th style="text-align: center !important;">Papel</th>      
+      <th style="text-align: center !important;" colspan="2">Ação</th>      
     </tr>
   </thead>
 
@@ -24,10 +24,24 @@
             <td><?= $row['user_name'] ?></td>           
             <td><?= $row['first_name'] ?></td>           
             <td><?= $row['last_name'] ?></td>           
-            <td><?= $row['user_email'] ?></td>           
-            <td><?= $row['user_role'] ?></td> 
-            <td><a href="users.php?source=edit_user&user_id=<?= $row['user_id'] ?>">Edit</a></td> 
-            <td><a href="users.php?delete=<?= $row['user_id'] ?>">Delete</a></td> 
+            <td><?= $row['user_email'] ?></td>   
+
+            <?php
+              $papel = $row['user_role'];
+              if ($papel == 'admin') {
+                $papel_do_user = 'Administrador';
+                $classe = 'text-success';
+              }
+              else{
+                $papel_do_user = 'Inscrito';
+                $classe = '';
+              }
+            ?>
+
+            <td class="<?= $classe; ?>"><?= $papel_do_user ?></td> 
+
+            <td><a href="users.php?source=edit_user&user_id=<?= $row['user_id'] ?>">Editar</a></td> 
+            <td><a href="users.php?delete=<?= $row['user_id'] ?>">Excluir</a></td> 
           </tr>         
           <?php
 

@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-lg-12">
           <h1 class="page-header">
-            Categories
+            Categorias
           </h1>
 
           <!-- LEFT -->
@@ -23,7 +23,7 @@
             <!-- ADD CATEGORY -->
             <form action="" method="post">
 
-              <label for="cat_title">Add Category</label>
+              <label for="cat_title">Adicionar Categoria</label>
               <div class="form-group">
                 <input type="text" name="cat_title" class="form-control">
               </div>
@@ -51,8 +51,8 @@
             <table class="table table-bordered table-hover text-center">
               <thead>
                 <tr>
-                  <th style="text-align: center !important;">Category Title</th>
-                  <th style="text-align: center !important;" colspan="2">Action</th>
+                  <th style="text-align: center !important;">Título</th>
+                  <th style="text-align: center !important;" colspan="2">Ação</th>
                 </tr>
               </thead>
 
@@ -61,8 +61,6 @@
                 <?php find_all_categories(); ?>
 
                 <?php delete_categories(); ?>
-
-
 
               </tbody>
 

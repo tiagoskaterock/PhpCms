@@ -13,7 +13,7 @@
 
         <div class="col-lg-12">
       
-        	<h1>Posts</h1>
+        	<h1>Postagens</h1>
 
           <?php show_post_buttons(); ?>
           

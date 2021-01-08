@@ -13,7 +13,7 @@
 
         <div class="col-lg-12">
       
-        	<h1>Comments</h1>
+        	<h1>Comentários</h1>
 
           <?php //show_post_buttons(); ?>
           

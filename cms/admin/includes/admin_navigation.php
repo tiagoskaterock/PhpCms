@@ -8,11 +8,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Admin <?= $_SESSION['first_name'] ?></a>
+                <a class="navbar-brand" href="index.php">Administrador</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                <li><a href="../index.php">HOME SITE</a></li>
+                <li><a href="../index.php">SITE</a></li>
 
 
 
@@ -23,12 +23,12 @@
                         <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="#"><i class="fa fa-fw fa-user"></i>Perfil</a>
                         </li>
 
                         <li class="divider"></li>
                         <li>
-                            <a href="includes/logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="includes/logout.php"><i class="fa fa-fw fa-power-off"></i>Sair</a>
                         </li>
                     </ul>
                 </li>
@@ -42,9 +42,9 @@
 
 
 
-                		<!-- DASHBOARD -->
+                	<!-- DASHBOARD -->
                     <li>
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Início</a>
                     </li>
                     <!-- END DASHBOARD -->
 
@@ -54,13 +54,13 @@
 
                     <!-- POSTS -->
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#posts_drop_down"><i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#posts_drop_down"><i class="fa fa-fw fa-arrows-v"></i> Postagens <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="posts_drop_down" class="collapse">
                             <li>
-                                <a href="posts.php">View All Posts</a>
+                                <a href="posts.php">Ver Postagens</a>
                             </li>
                             <li>
-                                <a href="posts.php?source=add_post">Add Post</a>
+                                <a href="posts.php?source=add_post">Nova Postagem</a>
                             </li>
                         </ul>
                     </li>
@@ -73,7 +73,7 @@
 
                     <!-- CATEGORIES -->
                     <li>
-                        <a href="categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
+                        <a href="categories.php"><i class="fa fa-fw fa-wrench"></i> Categorias</a>
                     </li>
                     <!-- END CATEGORIES -->
 
@@ -83,7 +83,7 @@
 
                     <!-- COMMENTS -->
                     <li class="">
-                        <a href="comments.php"><i class="fa fa-fw fa-file"></i> Comments</a>
+                        <a href="comments.php"><i class="fa fa-fw fa-file"></i> Comentários</a>
                     </li>
                     <!-- END COMMENTS -->
 
@@ -93,13 +93,13 @@
 
                     <!-- USERS -->
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#users_drop_down"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#users_drop_down"><i class="fa fa-fw fa-arrows-v"></i> Usuários <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="users_drop_down" class="collapse">
                             <li>
-                                <a href="users.php">View All Users</a>
+                                <a href="users.php">Todos Usuários</a>
                             </li>
                             <li>
-                                <a href="users.php?source=add_user">Add Users</a>
+                                <a href="users.php?source=add_user">Adicionar Usuário</a>
                             </li>
                         </ul>
                     </li>
@@ -110,7 +110,7 @@
 
                     <!-- PROFILE -->
                     <li>
-                        <a href="profile.php"><i class="fa fa-fw fa-dashboard"></i>Profile</a>
+                        <a href="profile.php"><i class="fa fa-fw fa-dashboard"></i>Perfil</a>
                     </li>
                     <!-- END PROFILE -->
 

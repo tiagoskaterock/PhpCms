@@ -13,7 +13,7 @@
 
         <div class="col-lg-12">
       
-        	<h1>Users</h1>
+        	<h1>Usuários</h1>
 
           <?php show_user_buttons(); ?>
           

@@ -13,16 +13,16 @@
     <div class="row">
       <div id="bulkOptionContainer" class="col-xs-4">
         <select name="bulk_options" id="" class="form-control">
-          <option value="select">Select Options</option>
-          <option value="publish">Publish</option>
-          <option value="draft">Draft</option>
-          <option value="delete">Delete</option>
+          <option value="select">Opções</option>
+          <option value="publish">Publicar</option>
+          <option value="draft">Rascunho</option>
+          <option value="delete">Excluir</option>
         </select>
       </div>
 
 
       <div class="col-xs-4">
-        <input type="submit" name="submit" class="btn btn-success" value="Apply">
+        <input type="submit" name="submit" class="btn btn-success" value="Aplicar">
         <!--<a class="btn btn-primary" href="posts.php?source=add_post">Add New</a>-->
       </div>      
     </div>
@@ -31,15 +31,15 @@
     <thead>
       <tr>
         <th><input type="checkbox" id="select_all_boxes" name=""></th>
-        <th style="text-align: center !important;">Author</th>
-        <th style="text-align: center !important;">Title</th>
-        <th style="text-align: center !important;">Category</th>
+        <th style="text-align: center !important;">Autor</th>
+        <th style="text-align: center !important;">Título</th>
+        <th style="text-align: center !important;">Categoria</th>
         <th style="text-align: center !important;">Status</th>
-        <th style="text-align: center !important;">Image</th>
+        <th style="text-align: center !important;">Imagem</th>
         <th style="text-align: center !important;">Tags</th>
-        <th style="text-align: center !important;">Comments</th>
-        <th style="text-align: center !important;">Date</th>
-        <th style="text-align: center !important;" colspan="2">Action</th>
+        <th style="text-align: center !important;">Comentários</th>
+        <th style="text-align: center !important;">Data</th>
+        <th style="text-align: center !important;" colspan="2">Ações</th>
       </tr>
     </thead>
 
@@ -75,7 +75,18 @@
 
             <td><?= $cat_title ?></td>
 
-            <td><?= $row['post_status'] ?></td>
+            <?php
+              $status_do_post = $row['post_status'];
+              if ($status_do_post == 'Draft') {
+                $status_do_post = 'Rascunho';
+                $classe = 'text-muted';
+              }
+              else{
+                $status_do_post = 'Publicado';
+                $classe = 'text-success';
+              }
+            ?>
+            <td class="<?= $classe ?>"><?= $status_do_post ?></td>
 
             <td>
               <a href="../post.php?p_id=<?= $row['post_id'] ?>">
@@ -100,10 +111,10 @@
             <td><?= $row['post_date'] ?></td>
 
 
-            <td><a href="posts.php?source=edit_post&p_id=<?= $row['post_id'] ?>">Edit</a></td>
+            <td><a href="posts.php?source=edit_post&p_id=<?= $row['post_id'] ?>">Editar</a></td>
 
 
-            <td><a href="posts.php?delete=<?= $row['post_id'] ?>">Delete</a></td>
+            <td><a href="posts.php?delete=<?= $row['post_id'] ?>">Excluir</a></td>
           </tr>
 
           <?php

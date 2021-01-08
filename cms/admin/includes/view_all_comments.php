@@ -1,13 +1,13 @@
 <table class="table table-bordered table-hover text-center" >
   <thead>
     <tr>
-      <th style="text-align: center !important;">Author</th>
-      <th style="text-align: center !important;">Comment</th>
+      <th style="text-align: center !important;">Autor</th>
+      <th style="text-align: center !important;">Comentário</th>
       <th style="text-align: center !important;">Email</th>
       <th style="text-align: center !important;">Status</th>
-      <th style="text-align: center !important;">In Response to</th>
-      <th style="text-align: center !important;">Date</th>
-      <th style="text-align: center !important;" colspan="3">Action</th>      
+      <th style="text-align: center !important;">Postagem</th>
+      <th style="text-align: center !important;">Data</th>
+      <th style="text-align: center !important;" colspan="3">Ação</th>      
     </tr>
   </thead>
 
@@ -36,7 +36,18 @@
           <td><?= $row['comment_email'] ?></td>
 
           <!-- Status -->
-          <td><?= $row['comment_status'] ?></td>
+          <?php 
+            $status_do_comentario = $row['comment_status'];
+            if ($status_do_comentario == 'approved') {
+              $status_do_comment = 'Aprovado';
+              $classe = 'text-success';
+            }
+            else{
+              $status_do_comment = 'Reprovado';
+              $classe = 'text-muted';
+            }
+          ?>
+          <td class="<?= $classe ?>"><?= $status_do_comment ?></td>
 
           <!-- In response to -->
           <?php
@@ -59,13 +70,13 @@
           <td><?= utf8_encode($row['comment_date']) ?></td>
 
           <!-- Approve -->
-          <td><a href="comments.php?approve=<?= $comment_id ?>">Approve</a></td>
+          <td><a href="comments.php?approve=<?= $comment_id ?>">Aprovar</a></td>
 
           <!-- unapprove -->
-          <td><a href="comments.php?unapprove=<?= $comment_id ?>">Unapprove</a></td>
+          <td><a href="comments.php?unapprove=<?= $comment_id ?>">Reprovar</a></td>
 
           <!-- delete -->
-          <td><a href="comments.php?delete=<?= $comment_id ?>">Delete</a></td>
+          <td><a href="comments.php?delete=<?= $comment_id ?>">Excluir</a></td>
         </tr>
 
         <?php
