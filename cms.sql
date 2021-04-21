@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 08-Jan-2021 às 01:38
--- Versão do servidor: 5.7.32-0ubuntu0.18.04.1
--- versão do PHP: 7.4.13
+-- Tempo de geração: 20-Abr-2021 às 22:15
+-- Versão do servidor: 5.7.33-0ubuntu0.18.04.1
+-- versão do PHP: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -125,6 +125,50 @@ INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`,
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `services`
+--
+
+CREATE TABLE `services` (
+  `service_id` int(11) NOT NULL,
+  `service_category_id` int(11) NOT NULL,
+  `service_title` varchar(255) NOT NULL,
+  `service_image` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `service_content` varchar(255) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `services`
+--
+
+INSERT INTO `services` (`service_id`, `service_category_id`, `service_title`, `service_image`, `service_content`) VALUES
+(2, 2, 'Skate', 'girls.gif', '<p>skateboard forever</p>'),
+(3, 1, 'Limpeza sensual', 'limpeza.jpeg', '<p>Gatinhas limpando carros de maneira muito sexy!</p>'),
+(4, 3, 'strip', 'brunette.gif', '<p>Digite seu texto aqui...</p>'),
+(5, 2, 'tertrert', 'tiago4.jpg', '<p>Digite seu texto aqui...</p>'),
+(6, 1, 'opoppoopopoppo', 'carro.jpg', '<p>opopopopopopopopop</p>');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `service_categories`
+--
+
+CREATE TABLE `service_categories` (
+  `service_cat_id` int(11) NOT NULL,
+  `service_cat_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `service_categories`
+--
+
+INSERT INTO `service_categories` (`service_cat_id`, `service_cat_name`) VALUES
+(1, 'limpeza'),
+(2, 'strip tease');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `users`
 --
 
@@ -180,6 +224,18 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`post_id`);
 
 --
+-- Índices para tabela `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`service_id`);
+
+--
+-- Índices para tabela `service_categories`
+--
+ALTER TABLE `service_categories`
+  ADD PRIMARY KEY (`service_cat_id`);
+
+--
 -- Índices para tabela `users`
 --
 ALTER TABLE `users`
@@ -206,6 +262,18 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `posts`
   MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT de tabela `services`
+--
+ALTER TABLE `services`
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `service_categories`
+--
+ALTER TABLE `service_categories`
+  MODIFY `service_cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `users`
