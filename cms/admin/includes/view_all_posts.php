@@ -2,8 +2,32 @@
 
 <?php
   if (isset($_POST['check_box_array'])) {
-    foreach ($_POST['check_box_array'] as $check_box_value) {
-      $bulk_options = $_POST['check_box_array'];
+    foreach ($_POST['check_box_array'] as $postValueId) {
+
+      $bulk_options = $_POST['bulk_options'];
+
+      switch ($bulk_options) {
+        case 'Published':
+          $query = "UPDATE posts set post_status = '$bulk_options' 
+          WHERE post_id = $postValueId";
+          $update_status = mysqli_query($connection, $query);
+          break;
+
+        case 'Draft':
+          $query = "UPDATE posts set post_status = '$bulk_options' 
+          WHERE post_id = $postValueId";
+          $update_status = mysqli_query($connection, $query);
+          break;
+
+        case 'Delete':
+          $query = "DELETE from posts WHERE post_id = $postValueId";
+          $delete = mysqli_query($connection, $query);
+          break;
+        
+        default:
+          break;
+      }
+
     }
   }
 ?>
@@ -12,11 +36,11 @@
   <table class="table table-bordered table-hover">
     <div class="row">
       <div id="bulkOptionContainer" class="col-xs-4">
-        <select name="bulk_options" id="" class="form-control">
-          <option value="select">Opções</option>
-          <option value="publish">Publicar</option>
-          <option value="draft">Rascunho</option>
-          <option value="delete">Excluir</option>
+        <select name="bulk_options" id="" class="form-control" required>
+          <option value="" selected disabled>Opções</option>
+          <option value="Published">Publicar</option>
+          <option value="Draft">Rascunho</option>
+          <option value="Delete">Excluir</option>
         </select>
       </div>
 
@@ -31,6 +55,7 @@
     <thead>
       <tr>
         <th><input type="checkbox" id="select_all_boxes" name=""></th>
+        <th style="text-align: center !important;">ID</th>
         <th style="text-align: center !important;">Autor</th>
         <th style="text-align: center !important;">Título</th>
         <th style="text-align: center !important;">Categoria</th>
@@ -56,7 +81,8 @@
 
 
           <tr>
-            <td><input type="checkbox" class="" name="check_box_array[]" value="<?= $post_id ?>"></td>
+            <td><input type="checkbox" class="checkbox" name="check_box_array[]" value="<?= $post_id ?>"></td>
+            <td><?= $row['post_id'] ?></td>
             <td><?= $row['post_author'] ?></td>
             <td><?= $row['post_title'] ?></td>
 
@@ -114,7 +140,7 @@
             <td><a href="posts.php?source=edit_post&p_id=<?= $row['post_id'] ?>">Editar</a></td>
 
 
-            <td><a href="posts.php?delete=<?= $row['post_id'] ?>">Excluir</a></td>
+            <td><a href="posts.php?delete=<?= $row['post_id'] ?>" onclick="return confirm('Deseja mesmo excluir o registro?');">Excluir</a></td>
           </tr>
 
           <?php
