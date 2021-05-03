@@ -78,14 +78,23 @@
                     $comment_email = utf8_decode($_POST['comment_email']);
                     $comment_content = utf8_decode($_POST['comment_content']);
 
-                    $query = "INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comment_email`, `comment_content`, `comment_status`, `comment_date`) 
-                    VALUES (NULL, $the_post_id, '{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved', now());";
+                    // verifica por campos vazios
+                    if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
+                        $query = "INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comment_email`, `comment_content`, `comment_status`, `comment_date`) 
+                        VALUES (NULL, $the_post_id, '{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved', now());";
 
-                    $create_comment_query = mysqli_query($connection, $query);
+                        $create_comment_query = mysqli_query($connection, $query);
 
-                    if (!$create_comment_query) {
-                        die('QUERY FAILED' . mysqli_error($connection));
+                        if (!$create_comment_query) {
+                            die('QUERY FAILED' . mysqli_error($connection));
+                        }
                     }
+                    else {
+                        ?>
+                        <script>alert('Fields cannot be empty')</script>
+                        <?php
+                    }
+
 
                 }
                 ?>

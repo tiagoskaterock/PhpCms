@@ -18,8 +18,15 @@
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
-                        <?= $_SESSION['first_name'] ?>
-                        <?= $_SESSION['last_name'] ?>
+
+                        <?php
+
+                            if (isset($_SESSION['first_name'])) {
+                                echo $_SESSION['first_name'] . " " . $_SESSION['last_name'];
+                            }
+
+                        ?>
+
                         <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>

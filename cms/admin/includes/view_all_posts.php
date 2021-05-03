@@ -64,7 +64,7 @@
         <th style="text-align: center !important;">Tags</th>
         <th style="text-align: center !important;">Comentários</th>
         <th style="text-align: center !important;">Data</th>
-        <th style="text-align: center !important;" colspan="2">Ações</th>
+        <th style="text-align: center !important;" colspan="3">Ações</th>
       </tr>
     </thead>
 
@@ -136,6 +136,7 @@
             <td><?= $total_comments ?></td>
             <td><?= $row['post_date'] ?></td>
 
+            <td><a href="../post.php?p_id=<?= $row['post_id'] ?>">See post</a></td>
 
             <td><a href="posts.php?source=edit_post&p_id=<?= $row['post_id'] ?>">Editar</a></td>
 

@@ -41,13 +41,13 @@
 	<!-- Título -->
 	<div class="form-group">
 		<label for="title">Título</label>
-		<input type="text" class="form-control" name="title" required>
+		<input type="text" class="form-control" name="title" required id="title">
 	</div>
 
 	<!-- Post Category ID -->
 	<div class="form-group">
 
-		<label for="post_category_id">Categoria</label><br>
+		<label for="post_category">Categoria</label><br>
 
 		<select name="post_category" id="post_category" class="form-control">
 
@@ -76,8 +76,8 @@
 
 	<!-- Post Author -->
 	<div class="form-group">
-		<label for="post_author">Autor</label>
-		<input type="text" class="form-control" name="post_author" required>
+		<label for="post_author" for="autor">Autor</label>
+		<input type="text" class="form-control" name="post_author" required id="autor">
 	</div>
 
 
@@ -86,11 +86,11 @@
 
 		<label for="post_status">Status</label><br>
 
-		<select name="post_status" id="post_status" class="form-control">
+		<select name="post_status" id="post_status" class="form-control form-select">
 
-	    <option value="Draft">Rascunho</option>	
+		    <option value="Draft">Rascunho</option>	
 
-	    <option value="Published">Publicada</option>	        
+		    <option value="Published">Publicada</option>	        
 
 		</select>
 

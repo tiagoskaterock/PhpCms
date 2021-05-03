@@ -220,6 +220,7 @@
 	<!-- Submit -->
 	<div class="form-group">		
 		<input type="submit" name="update_post" value="Update Post" class="btn btn-primary">
+		<a href="../post.php?p_id=<?= $post_id ?>" type="button" name="see_post" value="See post" class="btn btn-primary">See post</a>
 	</div>
 
 
