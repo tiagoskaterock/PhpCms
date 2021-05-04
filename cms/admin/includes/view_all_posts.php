@@ -1,4 +1,4 @@
-<!--<?php //require('delete_modal.php'); ?>-->
+<?php require('delete_modal.php'); ?>
 
 <?php
   if (isset($_POST['check_box_array'])) {
@@ -140,8 +140,10 @@
 
             <td><a href="posts.php?source=edit_post&p_id=<?= $row['post_id'] ?>">Editar</a></td>
 
-
+            <td><a href="javascript:void(0)" rel="<?= $post_id ?>" class="delete_link">Excluir</a></td>
+            <!--
             <td><a href="posts.php?delete=<?= $row['post_id'] ?>" onclick="return confirm('Deseja mesmo excluir o registro?');">Excluir</a></td>
+            -->
           </tr>
 
           <?php
@@ -169,3 +171,21 @@
 	}
 
 ?>
+
+
+
+<script>
+
+  $( document ).ready(function() {
+    $('.delete_link').on('click', function(){
+      var id = $(this).attr("rel");
+
+      var delete_url = "posts.php?delete=" + id + "";
+
+      $(".modal_delete_link").attr("href", delete_url);
+
+      $("#myModal").modal('show');
+    });
+  });
+
+</script>
