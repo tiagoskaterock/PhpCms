@@ -35,7 +35,15 @@
         }
         else {
             ?>
-            <h3 class="bg-success text-center">Registro criado com sucesso</h3>
+            <div style="text-align: center;">                
+                <h3 class="bg-success text-center" style="width: 500px; margin: 0 auto; padding: 5px; margin-bottom: 20px; border-radius: 5px;">Registro criado com sucesso</h3>
+            </div>
+
+            <div style="text-align: center;">
+                <button style="text-align: center;" type="button" class="btn btn-success" style="margin: 0 auto">
+                    <a href="index.php" style="text-decoration: none; color: white;">Entrar no CMS</a>
+                </button>
+            </div>
             <?php
         }
 
@@ -64,7 +72,7 @@
         <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
                 <div class="form-wrap">
-                <h1>Register</h1>
+                <h1 class="text-center">Register</h1>
                     <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
                         <div class="form-group">
                             <label for="username" class="sr-only">username</label>
@@ -79,7 +87,7 @@
                             <input type="password" name="password" id="key" class="form-control" placeholder="Password" required>
                         </div>
                 
-                        <input type="submit" name="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Register">
+                        <input type="submit" name="submit" id="btn-login" class="btn btn-primary btn-md btn-block" value="Register">
                     </form>
                  
                 </div>
