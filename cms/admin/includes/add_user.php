@@ -9,14 +9,17 @@
 		$user_role = $_POST['user_role'];
 		$user_password = $_POST['user_password'];	
 		
-		$query = "INSERT INTO `users` (`user_id`, `user_name`, `user_password`, `first_name`, `last_name`, `user_email`, `user_image`, `user_role`, `rand_salt`) 
-			VALUES (NULL, '{$user_name}', '{$user_password}', '{$first_name}', '{$last_name}', '{$user_email}', '', '{$user_role}', '')";
+		$query = "INSERT INTO `users` (`user_id`, `user_name`, `user_password`, `first_name`, `last_name`, `user_email`, `user_image`, `user_role`) 
+			VALUES (NULL, '{$user_name}', '{$user_password}', '{$first_name}', '{$last_name}', '{$user_email}', '', '{$user_role}')";
 
 		$create_user_query = mysqli_query($connection, $query);
 
 		confirm_query($create_user_query);
 
-		echo "<h4>User created: " . " $user_name " . "<br><a href='users.php'>View Users</a></h4>";
+		?>
+		<h4 class="bg-success">User created: <?= $user_name ?><br><a href='users.php'>
+		View Users</a></h4>
+		<?php
 
 		//header("Location: users.php");
 

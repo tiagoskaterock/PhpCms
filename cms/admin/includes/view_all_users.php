@@ -1,3 +1,18 @@
+<?php
+
+  // DELETE
+  if (isset($_GET['delete'])) {
+    $user_id = $_GET['delete'];
+    $query = "DELETE FROM users WHERE user_id = $user_id";
+    $delete_query = mysqli_query($connection, $query);
+    ?>
+    <script>alert('Usuário excluído com sucesso')</script>
+    <script>window.location.href = "users.php"</script>
+    <?php    
+  }
+
+?>
+
 <table class="table table-bordered table-hover text-center" >
   <thead>
     <tr>
@@ -40,8 +55,13 @@
 
             <td class="<?= $classe; ?>"><?= $papel_do_user ?></td> 
 
-            <td><a href="users.php?source=edit_user&user_id=<?= $row['user_id'] ?>">Editar</a></td> 
-            <td><a href="users.php?delete=<?= $row['user_id'] ?>">Excluir</a></td> 
+            <td>
+              <a href="users.php?source=edit_user&user_id=<?= $row['user_id'] ?>">Editar</a>
+            </td> 
+
+            <td>
+              <a href="users.php?delete=<?= $row['user_id'] ?>" onclick="return confirm('Deseja mesmo excluir este usuário?');">Excluir</a>
+            </td> 
           </tr>         
           <?php
 
@@ -53,14 +73,3 @@
 
 </table>
 
-<?php
-
-	// DELETE
-	if (isset($_GET['delete'])) {
-    $user_id = $_GET['delete'];
-    $query = "DELETE FROM users WHERE user_id = $user_id";
-		$delete_query = mysqli_query($connection, $query);
-		header("Location: users.php");    
-	}
-
-?>
