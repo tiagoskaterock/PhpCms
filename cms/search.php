@@ -9,11 +9,7 @@
         <div class="row">
 
             <!-- Blog Entries Column -->
-            <div class="col-md-8">
-                <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
-                </h1>
+            <div class="col-md-8">                
 
                 <?php
 
@@ -32,8 +28,12 @@
 
                         $count = mysqli_num_rows($search_query);
 
-                        echo "<h4>Searching for: $search</h4>";
-                        echo "<h4>Results: $count</h4>";
+                        ?>
+                        <h1 class="page-header">
+                            Searching for: <?= $search ?><br>
+                            <small>Results: <?= $count ?></small>
+                        </h1>
+                        <?php
 
                         if ($count == 0) {
                             echo "<h1>NO RESULT</h1>";

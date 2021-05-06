@@ -24,58 +24,62 @@
                     $post_date = $row['post_date'];
                     $post_image = $row['post_image'];
                     $post_content = $row['post_content'];
+                    $post_category_id = $row['post_category_id'];
 
                     ?> 
 
                     <?php
 
-                        $query_cat_name = "SELECT * FROM categories";
+                        $query_cat_name = "SELECT * FROM categories WHERE cat_id = $post_category_id";
                         $result_cat_name = $connection->query($query_cat_name);
 
                         if ($result_cat_name->num_rows > 0) {
                           while($row_cat_name = $result_cat_name->fetch_assoc()) {
                             $cat_name = $row_cat_name['cat_title'];
                             $cat_id = $row_cat_name['cat_id'];
-                          }
+                            ?>
+                            <!-- Blog Entries Column -->
+                            <div class="col-md-8">
+                                <h1 class="page-header">
+                                    <?php echo $post_title; ?><br>
+                                    <small>Posted in <a href="category.php?category=<?php echo $cat_id; ?>"><?php echo $cat_name; ?></a> </small>
+                                </h1>                   
+
+                                <p class="lead">
+                                    by <a href="author_posts.php?author=<?= $post_author ?>"><?php echo $post_author; ?></a>
+                                </p>
+
+                                <p>
+                                    <span class="glyphicon glyphicon-time">
+                                        
+                                    </span> 
+                                    Posted on <?php echo $post_date; ?>
+                                </p>
+
+                                <hr>
+
+                                <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="image" style="width: 100%;">
+
+                                <hr>
+
+                                <p>
+                                    <?php echo $post_content; ?>
+                                </p>
+
+                                <hr>
+
+                                <?php
+
+                            }
+
                         }
 
-
-                    ?>
-
-                    <!-- Blog Entries Column -->
-                    <div class="col-md-8">
-                        <h1 class="page-header">
-                            <?php echo $post_title; ?><br>
-                            <small>Posted in <a href="category.php?category=<?php echo $cat_id; ?>"><?php echo $cat_title; ?></a> </small>
-                        </h1>                   
-
-                        <p class="lead">
-                            by <a href="author_posts.php?author=<?= $post_author ?>"><?php echo $post_author; ?></a>
-                        </p>
-
-                        <p>
-                            <span class="glyphicon glyphicon-time">
-                                
-                            </span> 
-                            Posted on <?php echo $post_date; ?>
-                        </p>
-
-                        <hr>
-
-                        <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="image" style="width: 100%;">
-
-                        <hr>
-
-                        <p>
-                            <?php echo $post_content; ?>
-                        </p>
-
-                        <hr>
-
-                        <?php
                     }
 
                 ?>
+
+
+
 
                 <!-- Blog Comments Query-->
                 <?php
