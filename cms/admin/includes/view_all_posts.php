@@ -23,6 +23,34 @@
           $query = "DELETE from posts WHERE post_id = $postValueId";
           $delete = mysqli_query($connection, $query);
           break;
+
+        case 'Clone':
+          echo 'Clone';
+
+          $sql = "SELECT * FROM posts WHERE post_id = $postValueId";
+          $result = $connection->query($sql);
+
+          if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+              $post_id = $row['post_id'];
+              $post_category_id = $row['post_category_id'];
+              $post_title = $row['post_title'];
+              $post_author = $row['post_author'];
+              $post_date = $row['post_date'];
+              $post_image = $row['post_image'];
+              $post_content = $row['post_content'];
+              $post_tags = $row['post_tags'];
+            }
+          }
+
+          $query = "INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`, `post_date`, `post_image`, `post_content`, `post_tags`) VALUES (NULL, {$post_category_id}, '{$post_title}', '{$post_author}', now(), '{$post_image}', '{$post_content}', '{$post_tags}'); ";
+
+          $create_post_query = mysqli_query($connection, $query);
+
+          confirm_query($create_post_query);
+
+          header("Location: posts.php");
+          break;
         
         default:
           break;
@@ -33,7 +61,7 @@
 ?>
 
 <form action="" method="post">
-  <table class="table table-bordered table-hover">
+  <table class="table table-bordered table-hover text-center">
     <div class="row">
       <div id="bulkOptionContainer" class="col-xs-4">
         <select name="bulk_options" id="" class="form-control" required>
@@ -41,6 +69,7 @@
           <option value="Published">Publicar</option>
           <option value="Draft">Rascunho</option>
           <option value="Delete">Excluir</option>
+          <option value="Clone">Clone</option>
         </select>
       </div>
 
@@ -52,19 +81,19 @@
     </div>
     <br>
 
-    <thead>
-      <tr>
+    <thead class="text-center">
+      <tr class="text-center">
         <th><input type="checkbox" id="select_all_boxes" name=""></th>
-        <th style="text-align: center !important;">ID</th>
-        <th style="text-align: center !important;">Autor</th>
-        <th style="text-align: center !important;">Título</th>
-        <th style="text-align: center !important;">Categoria</th>
-        <th style="text-align: center !important;">Status</th>
-        <th style="text-align: center !important;">Imagem</th>
-        <th style="text-align: center !important;">Tags</th>
-        <th style="text-align: center !important;">Comentários</th>
-        <th style="text-align: center !important;">Data</th>
-        <th style="text-align: center !important;" colspan="3">Ações</th>
+        <th>ID</th>
+        <th>Autor</th>
+        <th>Título</th>
+        <th>Categoria</th>
+        <th>Status</th>
+        <th>Imagem</th>
+        <th>Tags</th>
+        <th>Comentários</th>
+        <th>Data</th>
+        <th colspan="3">Ações</th>
       </tr>
     </thead>
 
@@ -83,8 +112,18 @@
           <tr>
             <td><input type="checkbox" class="checkbox" name="check_box_array[]" value="<?= $post_id ?>"></td>
             <td><?= $row['post_id'] ?></td>
-            <td><?= $row['post_author'] ?></td>
-            <td><?= $row['post_title'] ?></td>
+
+            <td>
+              <a href="../author_posts.php?author=<?= $row['post_author'] ?>">
+                <?= $row['post_author'] ?>
+              </a>
+            </td>
+
+            <td>
+              <a href="../post.php?p_id=<?= $row['post_id'] ?>">
+                <?= $row['post_title'] ?>          
+              </a>
+            </td>
 
             <?php
 
@@ -99,7 +138,7 @@
 
             ?>
 
-            <td><?= $cat_title ?></td>
+            <td><a href="../category.php?category=<?= $cat_id ?>"><?= $cat_title ?></a></td>
 
             <?php
               $status_do_post = $row['post_status'];

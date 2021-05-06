@@ -10,9 +10,10 @@
       </div>
 
       <div class="modal-footer">
-        <a class="btn btn-danger modal_delete_link" href="">Delete</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-danger modal_delete_link" href="">Delete</a>
       </div>
+      
     </div>
 
   </div>

@@ -7,40 +7,50 @@
     <div class="container">
 
         <div class="row">
+        
+            <?php
 
-            <!-- Blog Entries Column -->
-            <div class="col-md-8">
-                <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
-                </h1>
+                if (isset($_GET['p_id'])) {
+                    $the_post_id = $_GET['p_id'];
+                }
 
-                <?php
+                $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
 
-                    if (isset($_GET['p_id'])) {
-                        $the_post_id = $_GET['p_id'];
-                    }
+                $select_all_posts_query = mysqli_query($connection, $query);
 
-                    $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
+                while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                    $post_title = $row['post_title'];
+                    $post_author = $row['post_author'];
+                    $post_date = $row['post_date'];
+                    $post_image = $row['post_image'];
+                    $post_content = $row['post_content'];
 
-                    $select_all_posts_query = mysqli_query($connection, $query);
+                    ?> 
 
-                    while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
-                        $post_title = $row['post_title'];
-                        $post_author = $row['post_author'];
-                        $post_date = $row['post_date'];
-                        $post_image = $row['post_image'];
-                        $post_content = $row['post_content'];
+                    <?php
 
-                        ?>                    
+                        $query_cat_name = "SELECT * FROM categories";
+                        $result_cat_name = $connection->query($query_cat_name);
 
-                        <!-- Blog Post -->
-                        <h2>
-                            <a href="#"><?php echo $post_title; ?></a>
-                        </h2>
+                        if ($result_cat_name->num_rows > 0) {
+                          while($row_cat_name = $result_cat_name->fetch_assoc()) {
+                            $cat_name = $row_cat_name['cat_title'];
+                            $cat_id = $row_cat_name['cat_id'];
+                          }
+                        }
+
+
+                    ?>
+
+                    <!-- Blog Entries Column -->
+                    <div class="col-md-8">
+                        <h1 class="page-header">
+                            <?php echo $post_title; ?><br>
+                            <small>Posted in <a href="category.php?category=<?php echo $cat_id; ?>"><?php echo $cat_title; ?></a> </small>
+                        </h1>                   
 
                         <p class="lead">
-                            by <a href="index.php"><?php echo $post_author; ?></a>
+                            by <a href="author_posts.php?author=<?= $post_author ?>"><?php echo $post_author; ?></a>
                         </p>
 
                         <p>

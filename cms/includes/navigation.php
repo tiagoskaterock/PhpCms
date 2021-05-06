@@ -24,6 +24,7 @@
 
           while ($row = mysqli_fetch_assoc($select_all_categories_query)) {
             $the_cat_id = $row['cat_id'];
+            $cat_title = $row['cat_title'];
             ?>
               <li>
                 <a href="category.php?category=<?= $the_cat_id ?>"><?php echo $row['cat_title']; ?></a>

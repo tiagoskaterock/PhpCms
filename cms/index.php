@@ -11,8 +11,8 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
                 <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
+                    MY CMS
+                    <small>Tiago's CMS</small>
                 </h1>
 
                 <?php
@@ -37,7 +37,7 @@
                         </h2>
 
                         <p class="lead">
-                            by <a href="index.php"><?php echo $post_author; ?></a>
+                            by <a href="author_posts.php?author=<?= $post_author ?>"><?php echo $post_author; ?></a>
                         </p>
 
                         <p>

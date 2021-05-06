@@ -1,3 +1,9 @@
+<?php
+    if (isset($_GET['author'])) {
+        $author = $_GET['author'];
+    }
+?>
+
 <?php require('includes/header.php'); ?>
 
     <!-- Navigation -->
@@ -8,32 +14,16 @@
 
         <div class="row">
 
-            <?php
-
-            if (isset($_GET['category'])) {
-                    $post_category = $_GET['category'];
-                }
-
-              $query = "SELECT * FROM categories WHERE cat_id = $post_category";
-
-              $select_all_categories_query = mysqli_query($connection, $query);
-
-              while ($row = mysqli_fetch_assoc($select_all_categories_query)) {
-                $cat_title = $row['cat_title'];
-              }          
-            ?>
-
             <!-- Blog Entries Column -->
             <div class="col-md-8">
                 <h1 class="page-header">
-                    Categories
-                    <small><?= $cat_title ?></small>
+                    All Posts by
+                    <small><?= $author ?></small>
                 </h1>
 
-                <?php                
+                <?php
 
-                    // published posts from certain category
-                    $query = "SELECT * FROM posts WHERE post_category_id = $post_category AND post_status = 'Published' ORDER BY post_id DESC";
+                    $query = "SELECT * FROM posts WHERE post_status = 'Published' and post_author = '$author' ORDER BY post_id DESC";
 
                     $select_all_posts_query = mysqli_query($connection, $query);
 
@@ -49,12 +39,14 @@
 
                         <!-- First Blog Post -->
                         <h2>
-                            <a href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a>
+                            <a href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a> 
                         </h2>
 
+                        <!--
                         <p class="lead">
-                            by <a href="author_posts.php?author=<?= $post_author ?>"><?php echo $post_author; ?></a>
+                            by <a href="index.php"><?php echo $post_author; ?></a>
                         </p>
+                    -->
 
                         <p>
                             <span class="glyphicon glyphicon-time">
@@ -66,15 +58,15 @@
                         <hr>
 
                         <a href="post.php?p_id=<?php echo $post_id ?>">
-                            <img class="img-responsive" style="width: 50%;" src="images/<?php echo $post_image; ?>" alt="">
+                            <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="Image" style="width: 50%;">
                         </a>
                             
 
                         <hr>
 
-                        <p>
+                        <div>
                             <?php echo $post_content; ?>
-                        </p>
+                        </div>
 
                         <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id ?>">
                             Read More 
