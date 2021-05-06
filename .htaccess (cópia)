@@ -1,0 +1,30 @@
+RewriteEngine On
+
+# https
+# utilizar esta regra apenas no site que estiver no ar
+# RewriteCond %{HTTPS} off
+
+
+
+# https
+# utilizar esta regra apenas no site que estiver no ar
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+
+# funciona sem digitar .php
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ $1\.php
+
+
+
+# Edwin's Course Rule
+# NC non case sensitive
+# L last
+# RewriteRule ^(index|sobre|cardapio|contato)$ $1.php [NC,L]
+
+
+
+# caminho do arquivo que libera .htaccess em localhost
+# /etc/apache2 apache2.conf 

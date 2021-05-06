@@ -17,11 +17,11 @@
 		confirm_query($create_user_query);
 
 		?>
-		<h4 class="bg-success">User created: <?= $user_name ?><br><a href='users.php'>
+		<h4 class="bg-success">User created: <?= $user_name ?><br><a href='users'>
 		View Users</a></h4>
 		<?php
 
-		//header("Location: users.php");
+		//header("Location: users");
 
 	}
 

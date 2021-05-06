@@ -37,7 +37,7 @@
 
     confirm_query($update_user_query);
 
-    header("Location: profile.php");    
+    header("Location: profile");    
 
   }
 

@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php">CMS</a>
+      <a class="navbar-brand" href="index">CMS</a>
     </div>     
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,7 +27,7 @@
             $cat_title = $row['cat_title'];
             ?>
               <li>
-                <a href="category.php?category=<?= $the_cat_id ?>"><?php echo $row['cat_title']; ?></a>
+                <a href="category?category=<?= $the_cat_id ?>"><?php echo $row['cat_title']; ?></a>
               </li>
             <?php
           }          
@@ -45,7 +45,7 @@
           if (isset($_SESSION['username'])) {
             ?>
             <li>
-              <a href="admin/index.php">Admin</a>
+              <a href="admin">Admin</a>
             </li>
             <?php
 
@@ -53,7 +53,7 @@
               $the_post_id = $_GET['p_id'];
             ?>
             <li>
-              <a href="admin/posts.php?source=edit_post&p_id=<?= $the_post_id ?>">Edit Post</a>
+              <a href="admin/posts?source=edit_post&p_id=<?= $the_post_id ?>">Edit Post</a>
             </li>
 
 
@@ -67,7 +67,7 @@
           }
           ?>
           <li>
-              <a href="registration.php">Registration</a>
+              <a href="registration">Registration</a>
           </li>
           <?php
 

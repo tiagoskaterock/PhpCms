@@ -74,7 +74,7 @@
 
 			<p class="bg-success">
 				Postagem Atualizada
-				<a href="../post.php?p_id=<?php echo $post_id ?>">
+				<a href="../post?p_id=<?php echo $post_id ?>">
 				 - View Postagem
 				</a>
 
@@ -83,7 +83,7 @@
 
 			<?php
 
-			//header("Location: posts.php");
+			//header("Location: posts");
 
 		}
 
@@ -220,7 +220,7 @@
 	<!-- Submit -->
 	<div class="form-group">		
 		<input type="submit" name="update_post" value="Update Post" class="btn btn-primary">
-		<a href="../post.php?p_id=<?= $post_id ?>" type="button" name="see_post" value="See post" class="btn btn-primary">See post</a>
+		<a href="../post?p_id=<?= $post_id ?>" type="button" name="see_post" value="See post" class="btn btn-primary">See post</a>
 	</div>
 
 

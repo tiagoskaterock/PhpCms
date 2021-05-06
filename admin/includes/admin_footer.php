@@ -24,13 +24,18 @@
 
 
 
+
+
    <script>
-		    ClassicEditor
-		        .create( document.querySelector( '#editor' ) )
-		        .catch( error => {
-		            console.error( error );
-		        } );
-		</script>
+	    ClassicEditor
+	        .create( document.querySelector( '#editor' ) )
+	        .catch( error => {
+	            console.error( error );
+	        } );
+	</script>
+
+
+    <script src="../js/scripts.js"></script>
 
 </body>
 

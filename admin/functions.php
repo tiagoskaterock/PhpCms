@@ -77,7 +77,7 @@
                   </div>
               </div>
           </div>
-          <a href="categories.php">
+          <a href="categories">
               <div class="panel-footer">
                   <span class="pull-left">Ver Detalhes</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -138,7 +138,7 @@
                   </div>
               </div>
           </div>
-          <a href="users.php">
+          <a href="users">
               <div class="panel-footer">
                   <span class="pull-left">Ver Detalhes</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -211,7 +211,7 @@
                   </div>
               </div>
           </div>
-          <a href="comments.php">
+          <a href="comments">
               <div class="panel-footer">
                   <span class="pull-left">Ver Detalhes</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -238,7 +238,7 @@
                   </div>
               </div>
           </div>
-          <a href="posts.php">
+          <a href="posts">
               <div class="panel-footer">
                   <span class="pull-left">Ver Detalhes</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -347,14 +347,14 @@
 
         <!-- Botão delete -->
         <td>
-          <a href="categories.php?delete=<?= $row['cat_id'] ?>">
+          <a href="categories?delete=<?= $row['cat_id'] ?>">
           Delete
           </a>
         </td> 
 
         <!-- Botão edit -->
         <td>
-          <a href="categories.php?edit=<?= $row['cat_id'] ?>">
+          <a href="categories?edit=<?= $row['cat_id'] ?>">
           Edit
           </a>
         </td> 
@@ -379,7 +379,7 @@
       $delete_query = mysqli_query($connection, $query);
 
       // REFRESH
-      header("Location: categories.php");
+      header("Location: categories");
     }
   }
 
@@ -387,7 +387,7 @@
     global $connection;
     if (isset($_GET['edit'])){
       $cat_id = $_GET['edit'];
-      require('includes/update_categories.php');
+      require('includes/update_categories');
     }
   }
 
@@ -397,12 +397,12 @@
       <div class="form-group">  
 
         <!-- Add New Post Button -->
-        <a href="posts.php?source=add_post">
+        <a href="posts?source=add_post">
           <button class="btn btn-primary">Nova Postagem</button>
         </a>
 
         <!-- See All Posts Button -->
-        <a href="posts.php">
+        <a href="posts">
           <button class="btn btn-primary">Ver Postagens</button>
         </a>
       </div>
@@ -416,12 +416,12 @@
       <div class="form-group">  
 
         <!-- Add New User Button -->
-        <a href="users.php?source=add_user">
+        <a href="users?source=add_user">
           <button class="btn btn-primary">Criar Novo Usuário</button>
         </a>
 
         <!-- See All Users Button -->
-        <a href="users.php">
+        <a href="users">
           <button class="btn btn-primary">Ver Todos Usuários</button>
         </a>
       </div>

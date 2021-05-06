@@ -42,11 +42,11 @@
                             <div class="col-md-8">
                                 <h1 class="page-header">
                                     <?php echo $post_title; ?><br>
-                                    <small>Posted in <a href="category.php?category=<?php echo $cat_id; ?>"><?php echo $cat_name; ?></a> </small>
+                                    <small>Posted in <a href="category?category=<?php echo $cat_id; ?>"><?php echo $cat_name; ?></a> </small>
                                 </h1>                   
 
                                 <p class="lead">
-                                    by <a href="author_posts.php?author=<?= $post_author ?>"><?php echo $post_author; ?></a>
+                                    by <a href="author_posts?author=<?= $post_author ?>"><?php echo $post_author; ?></a>
                                 </p>
 
                                 <p>

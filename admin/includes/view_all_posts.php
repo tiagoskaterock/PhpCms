@@ -49,7 +49,7 @@
 
           confirm_query($create_post_query);
 
-          header("Location: posts.php");
+          header("Location: posts");
           break;
         
         default:
@@ -76,7 +76,7 @@
 
       <div class="col-xs-4">
         <input type="submit" name="submit" class="btn btn-success" value="Aplicar">
-        <!--<a class="btn btn-primary" href="posts.php?source=add_post">Add New</a>-->
+        <!--<a class="btn btn-primary" href="posts?source=add_post">Add New</a>-->
       </div>      
     </div>
     <br>
@@ -114,13 +114,13 @@
             <td><?= $row['post_id'] ?></td>
 
             <td>
-              <a href="../author_posts.php?author=<?= $row['post_author'] ?>">
+              <a href="../author_posts?author=<?= $row['post_author'] ?>">
                 <?= $row['post_author'] ?>
               </a>
             </td>
 
             <td>
-              <a href="../post.php?p_id=<?= $row['post_id'] ?>">
+              <a href="../post?p_id=<?= $row['post_id'] ?>">
                 <?= $row['post_title'] ?>          
               </a>
             </td>
@@ -138,7 +138,7 @@
 
             ?>
 
-            <td><a href="../category.php?category=<?= $cat_id ?>"><?= $cat_title ?></a></td>
+            <td><a href="../category?category=<?= $cat_id ?>"><?= $cat_title ?></a></td>
 
             <?php
               $status_do_post = $row['post_status'];
@@ -154,7 +154,7 @@
             <td class="<?= $classe ?>"><?= $status_do_post ?></td>
 
             <td>
-              <a href="../post.php?p_id=<?= $row['post_id'] ?>">
+              <a href="../post?p_id=<?= $row['post_id'] ?>">
                 <img src="../images/<?= $row['post_image'] ?>" alt="Post Image" style="width: 100px;">
               </a>
             </td>
@@ -175,13 +175,13 @@
             <td><?= $total_comments ?></td>
             <td><?= $row['post_date'] ?></td>
 
-            <td><a href="../post.php?p_id=<?= $row['post_id'] ?>">See post</a></td>
+            <td><a href="../post?p_id=<?= $row['post_id'] ?>">See post</a></td>
 
-            <td><a href="posts.php?source=edit_post&p_id=<?= $row['post_id'] ?>">Editar</a></td>
+            <td><a href="posts?source=edit_post&p_id=<?= $row['post_id'] ?>">Editar</a></td>
 
             <td><a href="javascript:void(0)" rel="<?= $post_id ?>" class="delete_link">Excluir</a></td>
             <!--
-            <td><a href="posts.php?delete=<?= $row['post_id'] ?>" onclick="return confirm('Deseja mesmo excluir o registro?');">Excluir</a></td>
+            <td><a href="posts?delete=<?= $row['post_id'] ?>" onclick="return confirm('Deseja mesmo excluir o registro?');">Excluir</a></td>
             -->
           </tr>
 
@@ -206,7 +206,7 @@
 		$the_post_id = $_GET['delete'];
 		$query = "DELETE FROM posts WHERE post_id = $the_post_id";
 		$delete_query = mysqli_query($connection, $query);
-		header("Location: posts.php");
+		header("Location: posts");
 	}
 
 ?>
@@ -219,7 +219,7 @@
     $('.delete_link').on('click', function(){
       var id = $(this).attr("rel");
 
-      var delete_url = "posts.php?delete=" + id + "";
+      var delete_url = "posts?delete=" + id + "";
 
       $(".modal_delete_link").attr("href", delete_url);
 

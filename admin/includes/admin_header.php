@@ -12,7 +12,7 @@
   
   // not admin go back to blog
   if ($_SESSION['user_role'] != "admin") {
-    header("Location: ../index.php");
+    header("Location: ../");
   }
   
 ?>
@@ -31,6 +31,8 @@
   <title>SB Admin - Bootstrap Admin Template</title>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  
 
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -51,6 +53,10 @@
   <![endif]-->
 
   <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../css/loader.css">
+
+  
 
   
  

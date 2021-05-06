@@ -7,7 +7,7 @@
     $delete_query = mysqli_query($connection, $query);
     ?>
     <script>alert('Usuário excluído com sucesso')</script>
-    <script>window.location.href = "users.php"</script>
+    <script>window.location.href = "users"</script>
     <?php    
   }
 
@@ -56,11 +56,11 @@
             <td class="<?= $classe; ?>"><?= $papel_do_user ?></td> 
 
             <td>
-              <a href="users.php?source=edit_user&user_id=<?= $row['user_id'] ?>">Editar</a>
+              <a href="users?source=edit_user&user_id=<?= $row['user_id'] ?>">Editar</a>
             </td> 
 
             <td>
-              <a href="users.php?delete=<?= $row['user_id'] ?>" onclick="return confirm('Deseja mesmo excluir este usuário?');">Excluir</a>
+              <a href="users?delete=<?= $row['user_id'] ?>" onclick="return confirm('Deseja mesmo excluir este usuário?');">Excluir</a>
             </td> 
           </tr>         
           <?php

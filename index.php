@@ -33,11 +33,11 @@
 
                         <!-- First Blog Post -->
                         <h2>
-                            <a href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a> 
+                            <a href="post?p_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a> 
                         </h2>
 
                         <p class="lead">
-                            by <a href="author_posts.php?author=<?= $post_author ?>"><?php echo $post_author; ?></a>
+                            by <a href="author_posts?author=<?= $post_author ?>"><?php echo $post_author; ?></a>
                         </p>
 
                         <p>
@@ -49,7 +49,7 @@
 
                         <hr>
 
-                        <a href="post.php?p_id=<?php echo $post_id ?>">
+                        <a href="post?p_id=<?php echo $post_id ?>">
                             <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="Image" style="width: 50%;">
                         </a>
                             
@@ -60,7 +60,7 @@
                             <?php echo $post_content; ?>
                         </div>
 
-                        <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id ?>">
+                        <a class="btn btn-primary" href="post?p_id=<?php echo $post_id ?>">
                             Read More 
                             <span class="glyphicon glyphicon-chevron-right">
                                 

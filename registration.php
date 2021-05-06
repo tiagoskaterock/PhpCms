@@ -41,7 +41,7 @@
 
             <div style="text-align: center;">
                 <button style="text-align: center;" type="button" class="btn btn-success" style="margin: 0 auto">
-                    <a href="index.php" style="text-decoration: none; color: white;">Entrar no CMS</a>
+                    <a href="index" style="text-decoration: none; color: white;">Entrar no CMS</a>
                 </button>
             </div>
             <?php
@@ -73,7 +73,7 @@
             <div class="col-xs-6 col-xs-offset-3">
                 <div class="form-wrap">
                 <h1 class="text-center">Register</h1>
-                    <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
+                    <form role="form" action="registration" method="post" id="login-form" autocomplete="off">
                         <div class="form-group">
                             <label for="username" class="sr-only">username</label>
                             <input type="text" name="username" id="username" class="form-control" placeholder="Enter Desired Username" required>

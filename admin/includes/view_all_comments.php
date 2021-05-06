@@ -64,19 +64,19 @@
           ?>
 
           <!-- post title -->
-          <td><a href="../post.php?p_id=<?= $post_id; ?>"><?= $post_title; ?></a></td>
+          <td><a href="../post?p_id=<?= $post_id; ?>"><?= $post_title; ?></a></td>
 
           <!-- Date -->
           <td><?= utf8_encode($row['comment_date']) ?></td>
 
           <!-- Approve -->
-          <td><a href="comments.php?approve=<?= $comment_id ?>">Aprovar</a></td>
+          <td><a href="comments?approve=<?= $comment_id ?>">Aprovar</a></td>
 
           <!-- unapprove -->
-          <td><a href="comments.php?unapprove=<?= $comment_id ?>">Reprovar</a></td>
+          <td><a href="comments?unapprove=<?= $comment_id ?>">Reprovar</a></td>
 
           <!-- delete -->
-          <td><a href="comments.php?delete=<?= $comment_id ?>">Excluir</a></td>
+          <td><a href="comments?delete=<?= $comment_id ?>">Excluir</a></td>
         </tr>
 
         <?php
@@ -97,7 +97,7 @@
 		$query = "UPDATE comments SET comment_status = 'approved' 
 							WHERE comment_id = $comment_id; ";
 		$update_query = mysqli_query($connection, $query);
-		header("Location: comments.php");
+		header("Location: comments");
 		
 	}
 
@@ -108,7 +108,7 @@
 		$query = "UPDATE comments SET comment_status = 'unapproved' 
 							WHERE comment_id = $comment_id; ";
 		$update_query = mysqli_query($connection, $query);
-		header("Location: comments.php");
+		header("Location: comments");
 		
 	}
 
@@ -117,7 +117,7 @@
 		$comment_id = $_GET['delete'];
 		$query = "DELETE FROM comments WHERE comment_id = $comment_id";
 		$delete_query = mysqli_query($connection, $query);
-		header("Location: comments.php");
+		header("Location: comments");
 	}
 
 ?>

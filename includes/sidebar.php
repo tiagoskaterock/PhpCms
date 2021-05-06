@@ -5,7 +5,7 @@
 
         <h4>Blog Search</h4>
 
-        <form action="search.php" method="post">
+        <form action="search" method="post">
             
             <div class="input-group">
                 <input name="search" type="text" class="form-control" required>
@@ -31,7 +31,7 @@
 
         <h4>Login</h4>
 
-        <form action="includes/login.php" method="post">
+        <form action="includes/login" method="post">
             
             <div class="form-group">
                 <!-- name -->
@@ -81,7 +81,7 @@
         $the_cat_id = $row['cat_id'];
         ?>
           <li>
-            <a href="category.php?category=<?= $the_cat_id ?>"><?php echo $row['cat_title']; ?></a>
+            <a href="category?category=<?= $the_cat_id ?>"><?php echo $row['cat_title']; ?></a>
           </li>
         <?php
     } ?>

@@ -36,7 +36,7 @@
                           }
 
                           // REFRESH
-                          header("Location: categories.php");
+                          header("Location: categories");
                         }
                         
                       ?>

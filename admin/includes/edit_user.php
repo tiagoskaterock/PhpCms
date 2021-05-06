@@ -36,7 +36,7 @@
 
 		confirm_query($update_user_query);
 
-		header("Location: users.php");	
+		header("Location: users");	
 
 	}
 
