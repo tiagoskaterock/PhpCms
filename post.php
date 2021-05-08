@@ -12,68 +12,108 @@
 
                 if (isset($_GET['p_id'])) {
                     $the_post_id = $_GET['p_id'];
-                }
 
-                $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
+                    if ($_GET['p_id'] == '') {
+                        header("Location: index");
+                    }
+                
+                    $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
 
-                $select_all_posts_query = mysqli_query($connection, $query);
+                    $select_all_posts_query = mysqli_query($connection, $query);
 
-                while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
-                    $post_title = $row['post_title'];
-                    $post_author = $row['post_author'];
-                    $post_date = $row['post_date'];
-                    $post_image = $row['post_image'];
-                    $post_content = $row['post_content'];
-                    $post_category_id = $row['post_category_id'];
+                    if ($select_all_posts_query->num_rows == 0) {
+                        header("Location: index");
+                    }
 
-                    ?> 
+                    while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                        $post_title = $row['post_title'];
+                        $post_author = $row['post_author'];
+                        $post_date = $row['post_date'];
+                        $post_image = $row['post_image'];
+                        $post_content = $row['post_content'];
+                        $post_category_id = $row['post_category_id'];                
+                        $post_views_count = $row['post_views_count'];
+                        ?> 
 
-                    <?php
+                        <?php
 
-                        $query_cat_name = "SELECT * FROM categories WHERE cat_id = $post_category_id";
-                        $result_cat_name = $connection->query($query_cat_name);
+                            $query_cat_name = "SELECT * FROM categories WHERE cat_id = $post_category_id";
+                            $result_cat_name = $connection->query($query_cat_name);
 
-                        if ($result_cat_name->num_rows > 0) {
-                          while($row_cat_name = $result_cat_name->fetch_assoc()) {
-                            $cat_name = $row_cat_name['cat_title'];
-                            $cat_id = $row_cat_name['cat_id'];
-                            ?>
-                            <!-- Blog Entries Column -->
-                            <div class="col-md-8">
-                                <h1 class="page-header">
-                                    <?php echo $post_title; ?><br>
-                                    <small>Posted in <a href="category?category=<?php echo $cat_id; ?>"><?php echo $cat_name; ?></a> </small>
-                                </h1>                   
+                            if ($result_cat_name->num_rows > 0) {
+                              while($row_cat_name = $result_cat_name->fetch_assoc()) {
+                                $cat_name = $row_cat_name['cat_title'];
+                                $cat_id = $row_cat_name['cat_id'];
+                                ?>
+                                <!-- Blog Entries Column -->
+                                <div class="col-md-8">
+                                    <h1 class="page-header">
+                                        <?php echo $post_title; ?><br>
+                                        <small>Posted in <a href="category?category=<?php echo $cat_id; ?>"><?php echo $cat_name; ?></a> </small>
+                                    </h1>                   
 
-                                <p class="lead">
-                                    by <a href="author_posts?author=<?= $post_author ?>"><?php echo $post_author; ?></a>
-                                </p>
+                                    <p class="lead">
+                                        by <a href="author_posts?author=<?= $post_author ?>"><?php echo $post_author; ?></a>
+                                    </p>
 
-                                <p>
-                                    <span class="glyphicon glyphicon-time">
-                                        
-                                    </span> 
-                                    Posted on <?php echo $post_date; ?>
-                                </p>
 
-                                <hr>
 
-                                <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="image" style="width: 100%;">
+                                    <?php
 
-                                <hr>
+                                        $post_views_count++;
 
-                                <p>
-                                    <?php echo $post_content; ?>
-                                </p>
+                                        $sql = "UPDATE posts SET post_views_count = '$post_views_count' WHERE post_id = $the_post_id";
 
-                                <hr>
+                                        $connection->query($sql);
 
-                                <?php
+                                    ?>
+
+                                    <p>
+                                        <span class="glyphicon glyphicon-time">
+                                            
+                                        </span> 
+                                        Posted on <?php echo $post_date; ?>
+                                        <br>
+                                        <?php 
+                                            if ($post_views_count == 1) {
+                                                echo "$post_views_count view";
+                                            }
+                                            else {
+                                                echo "$post_views_count views";
+                                            }                                           
+                                        ?> 
+                                    </p>
+
+                                    <hr>
+
+                                    <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="image" style="width: 100%;">
+
+                                    <hr>
+
+                                    <p>
+                                        <?php echo $post_content; ?>
+                                    </p>
+
+                                    <hr>
+
+                                    <?php
+
+                                }
 
                             }
+                            
 
                         }
 
+
+
+
+
+
+                    } 
+                    
+                    else{
+                        header("Location: index");
                     }
 
                 ?>

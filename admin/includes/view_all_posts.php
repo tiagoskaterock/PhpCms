@@ -39,7 +39,7 @@
               $post_date = $row['post_date'];
               $post_image = $row['post_image'];
               $post_content = $row['post_content'];
-              $post_tags = $row['post_tags'];
+              $post_tags = $row['post_tags'];              
             }
           }
 
@@ -92,6 +92,7 @@
         <th>Imagem</th>
         <th>Tags</th>
         <th>Comentários</th>
+        <th>Views</th>
         <th>Data</th>
         <th colspan="3">Ações</th>
       </tr>
@@ -105,7 +106,8 @@
 
         while ($row = mysqli_fetch_assoc($select_posts)) { 
         	$post_category_id = $row['post_category_id'];
-          $post_id = $row['post_id'];        
+          $post_id = $row['post_id']; 
+          $post_views_count = $row['post_views_count'];       
           ?>
 
 
@@ -133,7 +135,7 @@
 
               while ($row_2 = mysqli_fetch_assoc($select_categories)) {
                 $cat_id = $row_2['cat_id'];
-                $cat_title = $row_2['cat_title'];
+                $cat_title = $row_2['cat_title'];                
               }
 
             ?>
@@ -173,6 +175,10 @@
             ?>
 
             <td><?= $total_comments ?></td>
+
+            <td><?= $post_views_count ?></td>
+
+
             <td><?= $row['post_date'] ?></td>
 
             <td><a href="../post?p_id=<?= $row['post_id'] ?>">See post</a></td>
