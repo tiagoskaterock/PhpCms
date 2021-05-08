@@ -94,7 +94,7 @@
         <th>Comentários</th>
         <th>Views</th>
         <th>Data</th>
-        <th colspan="3">Ações</th>
+        <th colspan="4">Ações</th>
       </tr>
     </thead>
 
@@ -178,8 +178,21 @@
 
             <td><?= $post_views_count ?></td>
 
-
             <td><?= $row['post_date'] ?></td>
+
+
+
+
+            <td>
+              <a href="includes/reset_views_count?p_id=<?= $row['post_id'] ?>" 
+                onclick="return confirm('Deseja mesmo zerar as views?');">
+                Reset views count
+              </a>
+            </td>
+
+
+
+
 
             <td><a href="../post?p_id=<?= $row['post_id'] ?>">See post</a></td>
 

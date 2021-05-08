@@ -1,4 +1,4 @@
-<?php require('includes/admin_header.php'); ?>
+<?php require('includes/admin_header.php') ?>
 
     <div id="wrapper">
 
