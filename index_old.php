@@ -1,7 +1,9 @@
 <?php require('includes/header.php'); ?>
 
-    <?php show_navigation() ?>
+    <!-- Navigation -->
+    <?php require('includes/navigation.php'); ?>
 
+    <!-- Page Content -->
     <div class="container">
 
         <div class="row">
@@ -15,50 +17,11 @@
                     <small>Tiago's CMS</small>
                 </h1>
 
-
-
-
-                <?php 
-
-                    $per_page = 5;
-
-                    if (isset($_GET['page'])) {
-                        $page = $_GET['page'];
-                    }
-                    else {
-                        $page = "";
-                    }
-
-                    if ($page == "" || $page == 1) {
-                        $page_1 = 0;
-                    }
-                    else {
-                        $page_1 = ($page * $per_page) - $per_page;
-                    }
-                ?>
-
-
-
-                <?php $count = conta_posts_ativos() ?>
-
-
-
-                <?php $count = ceil($count / $per_page) ?>
-
-
-
-
                 <?php
 
-                    $query = "SELECT * FROM posts WHERE post_status = 'Published'  ORDER BY post_id DESC LIMIT $per_page OFFSET $page_1";
+                    $query = "SELECT * FROM posts WHERE post_status = 'Published' ORDER BY post_id DESC";
 
                     $select_all_posts_query = mysqli_query($connection, $query);
-
-                    $index = index();
-
-                    if ($select_all_posts_query->num_rows == 0) {
-                        header("Location: $index");
-                    }
 
                     while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
                         $post_id = $row['post_id'];
@@ -117,36 +80,12 @@
 
             </div>
 
-            <?php show_sidebar() ?>
+            <!-- Blog Sidebar Widgets Column -->
+            <?php require('includes/sidebar.php'); ?>
 
         </div>
+        <!-- /.row -->
 
         <hr>
 
-        <ul class="pagination justify-content-center">
-
-            <?php 
-
-                for ($i=1; $i <= $count ; $i++) { 
-                    if ($page == $i) {
-                        ?>
-                        <li class="active"><a href="index?page=<?= $i ?>"><?= $i ?></a></li>
-                        <?php
-                    }
-                    else {
-                        ?>
-                        <li><a href="index?page=<?= $i ?>"><?= $i ?></a></li>
-                        <?php
-                    }
-                }
-
-            ?>
-
-
-
-
-
-
-        </ul>
-
-<?php show_footer() ?>
+<?php require('includes/footer.php'); ?>

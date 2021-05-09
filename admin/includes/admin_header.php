@@ -1,3 +1,5 @@
+<?php include('../includes/rotas.php') ?>
+
 <?php require_once('../includes/db.php'); ?>
 
 <?php require_once('functions.php'); ?>

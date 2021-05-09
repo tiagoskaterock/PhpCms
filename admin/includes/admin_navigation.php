@@ -8,11 +8,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/cms/admin">Administrador</a>
+                <a class="navbar-brand" href="<?= index_admin() ?>">Administrador</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                <li><a href="../">SITE</a></li>
+                <li><a href="<?= index() ?>">SITE</a></li>
 
 
 
@@ -51,7 +51,7 @@
 
                 	<!-- DASHBOARD -->
                     <li>
-                        <a href="/cms/admin"><i class="fa fa-fw fa-dashboard"></i> Início</a>
+                        <a href="<?= index_admin() ?>"><i class="fa fa-fw fa-dashboard"></i> Início</a>
                     </li>
                     <!-- END DASHBOARD -->
 

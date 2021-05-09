@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 	$("body").prepend(div_box);
 
-	$('#load-screen').delay(300).fadeOut(300, function(){
+	$('#load-screen').delay(100).fadeOut(100, function(){
 
 		$(this).remove();
 

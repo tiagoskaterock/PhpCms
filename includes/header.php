@@ -1,3 +1,6 @@
+<?php include('includes/rotas.php') ?>
+<?php include('includes/tiago_functions.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
