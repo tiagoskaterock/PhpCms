@@ -35,17 +35,12 @@
                     else {
                         $page_1 = ($page * $per_page) - $per_page;
                     }
+
                 ?>
-
-
 
                 <?php $count = conta_posts_ativos() ?>
 
-
-
                 <?php $count = ceil($count / $per_page) ?>
-
-
 
 
                 <?php
@@ -61,6 +56,7 @@
                     }
 
                     while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                        $post_views_count = $row['post_views_count'];
                         $post_id = $row['post_id'];
                         $post_title = $row['post_title'];
                         $post_author = $row['post_author'];
@@ -84,6 +80,12 @@
                                 
                             </span> 
                             Posted on <?php echo $post_date; ?>
+                        </p>
+
+                        <p>
+                            <span>
+                                <?php mostra_views() ?> 
+                            </span>
                         </p>
 
                         <hr>
@@ -121,32 +123,21 @@
 
         </div>
 
-        <hr>
-
         <ul class="pagination justify-content-center">
-
-            <?php 
-
+            <?php
                 for ($i=1; $i <= $count ; $i++) { 
-                    if ($page == $i) {
-                        ?>
-                        <li class="active"><a href="index?page=<?= $i ?>"><?= $i ?></a></li>
-                        <?php
-                    }
-                    else {
-                        ?>
-                        <li><a href="index?page=<?= $i ?>"><?= $i ?></a></li>
-                        <?php
-                    }
-                }
-
-            ?>
-
-
-
-
-
-
-        </ul>
+              if ($page == $i) {
+                ?>
+                <li class="active" ><a href="index?page=<?= $i ?>"><?= $i ?></a></li>
+                <?php
+              }
+              else {
+                ?>
+                <li><a href="index?page=<?= $i ?>"><?= $i ?></a></li>
+                <?php
+              }
+            }
+           ?>
+         </ul>
 
 <?php show_footer() ?>

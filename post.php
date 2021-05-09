@@ -74,14 +74,7 @@
                                         </span> 
                                         Posted on <?php echo $post_date; ?>
                                         <br>
-                                        <?php 
-                                            if ($post_views_count == 1) {
-                                                echo "$post_views_count view";
-                                            }
-                                            else {
-                                                echo "$post_views_count views";
-                                            }                                           
-                                        ?> 
+                                        <?php mostra_views() ?>
                                     </p>
 
                                     <hr>
@@ -141,6 +134,13 @@
 
                         if (!$create_comment_query) {
                             die('QUERY FAILED' . mysqli_error($connection));
+                        }
+                        else {
+                            ?>
+                            <script>
+                                alert('Comentário enviado para moderação com sucesso.')
+                            </script>
+                            <?php
                         }
                     }
                     else {

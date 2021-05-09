@@ -174,7 +174,7 @@
               }
             ?>
 
-            <td><?= $total_comments ?></td>
+            <td><a href="comments?post_id=<?= $post_id ?>"><?= $total_comments ?></a></td>
 
             <td><?= $post_views_count ?></td>
 
