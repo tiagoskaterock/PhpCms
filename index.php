@@ -6,7 +6,7 @@
 
         <div class="row">
 
-            <h1 class="bg-danger">Banco mudado em casa 7 de maio</h1>
+            <h1 class="bg-danger">Banco mudado em casa 10 de maio</h1>
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
@@ -71,9 +71,11 @@
                             <a href="post?p_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a> 
                         </h2>
 
+                        <!--
                         <p class="lead">
                             by <a href="author_posts?author=<?= $post_author ?>"><?php echo $post_author; ?></a>
                         </p>
+                    -->
 
                         <p>
                             <span class="glyphicon glyphicon-time">

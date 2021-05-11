@@ -107,7 +107,9 @@
         while ($row = mysqli_fetch_assoc($select_posts)) { 
         	$post_category_id = $row['post_category_id'];
           $post_id = $row['post_id']; 
-          $post_views_count = $row['post_views_count'];       
+          $post_views_count = $row['post_views_count']; 
+          $post_author_id = $row['post_author_id'];
+          $post_author = $row['post_author'];
           ?>
 
 
@@ -115,9 +117,32 @@
             <td><input type="checkbox" class="checkbox" name="check_box_array[]" value="<?= $post_id ?>"></td>
             <td><?= $row['post_id'] ?></td>
 
+
+
+
+            <?php 
+            
+              $sql_bosta = "SELECT * FROM users WHERE user_id = '$post_author_id'";
+              $result_bosta = $connection->query($sql_bosta);
+
+              if ($result_bosta->num_rows > 0) {
+                while($row_bosta = $result_bosta->fetch_assoc()) {
+                  $author_name = $row_bosta['first_name'] . " " . $row_bosta['last_name'];
+                }
+              }
+              else {
+                $author_name = 'desconhecido';
+              }
+              
+            ?>
+
+
+
+
+
             <td>
-              <a href="../author_posts?author=<?= $row['post_author'] ?>">
-                <?= $row['post_author'] ?>
+              <a href="../author_posts?author=<?= $post_author_id ?>">
+                <?= $author_name ?>
               </a>
             </td>
 

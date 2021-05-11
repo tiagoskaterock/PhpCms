@@ -3,7 +3,7 @@
 	if (isset($_POST['create_post'])) {
 		
 		$post_title = $_POST['title'];
-		$post_author = $_POST['post_author'];
+		$post_author_id = $_POST['post_author_id'];
 		$post_category_id = $_POST['post_category'];
 		$post_status = $_POST['post_status'];
 		
@@ -22,7 +22,7 @@
 
 		move_uploaded_file($post_image_temp, "../images/$post_image");
 
-		$query = "INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`, `post_date`, `post_image`, `post_content`, `post_tags`, `post_comment_count`, `post_status`) VALUES (NULL, {$post_category_id}, '{$post_title}', '{$post_author}', now(), '{$post_image}', '{$post_content}', '{$post_tags}', {$post_comment_count}, '{$post_status}'); ";
+		$query = "INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author_id`, `post_date`, `post_image`, `post_content`, `post_tags`, `post_comment_count`, `post_status`) VALUES (NULL, {$post_category_id}, '{$post_title}', '{$post_author_id}', now(), '{$post_image}', '{$post_content}', '{$post_tags}', {$post_comment_count}, '{$post_status}'); ";
 
 		$create_post_query = mysqli_query($connection, $query);
 
@@ -75,10 +75,55 @@
 
 
 	<!-- Post Author -->
+	<!--
 	<div class="form-group">
 		<label for="post_author" for="autor">Autor</label>
 		<input type="text" class="form-control" name="post_author" required id="autor">
 	</div>
+-->
+
+
+
+	<!-- Post Author by ID -->
+	<div class="form-group">
+
+		<?php 
+
+			if (isset($_SESSION['first_name'])) {
+
+				$post_author_id = $_SESSION['user_id'];
+
+				$query_post_author = "SELECT * FROM users WHERE user_id = $post_author_id";
+
+	      $select_post_author_id = mysqli_query($connection, $query_post_author);      
+
+	      confirm_query($select_post_author_id);
+
+	      while ($row = mysqli_fetch_assoc($select_post_author_id)) {
+	      	$author_name = $row['first_name'] . " " . $row['last_name'];
+	      }
+			}
+
+		?>
+
+		</div>
+
+		<!-- Post Author ID -->
+	<div class="form-group">
+		<label for="post_author_id">Post Author</label>
+		<input readonly class="form-control" name="post_author_id" value="<?= $author_name ?>">
+	</div>
+
+		<!-- Post Author ID -->
+	<div class="form-group">
+		<label for="post_author_id">Post Author ID</label>
+		<input class="form-control" type="text" name="post_author_id" readonly value="<?= $post_author_id ?>">
+	</div>
+
+
+
+
+
 
 
 	<!-- Post Status -->

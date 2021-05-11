@@ -14,16 +14,33 @@
 
         <div class="row">
 
+            <?php 
+
+                if (isset($_GET['author'])) {
+
+                    $post_author_id = $_GET['author'];
+
+                    $query_post_author = "SELECT * FROM users WHERE user_id = $post_author_id";
+
+                    $select_post_author_id = mysqli_query($connection, $query_post_author);    
+
+                    while ($row = mysqli_fetch_assoc($select_post_author_id)) {
+                        $author_name = $row['first_name'] . " " . $row['last_name'];
+                    }
+                }
+
+            ?>
+
             <!-- Blog Entries Column -->
             <div class="col-md-8">
                 <h1 class="page-header">
                     All Posts by
-                    <small><?= $author ?></small>
+                    <small><?= $author_name ?></small>
                 </h1>
 
                 <?php
 
-                    $query = "SELECT * FROM posts WHERE post_status = 'Published' and post_author = '$author' ORDER BY post_id DESC";
+                    $query = "SELECT * FROM posts WHERE post_status = 'Published' and post_author_id = '$author' ORDER BY post_id DESC";
 
                     $select_all_posts_query = mysqli_query($connection, $query);
 
