@@ -25,3 +25,11 @@
     } 
 	}
 
+	function escape($string) {
+		global $connection;
+		$string = trim($string);
+		$string = strip_tags($string);
+		$string = mysqli_real_escape_string($connection, $string);
+		return $string;
+	}
+

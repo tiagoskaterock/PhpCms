@@ -2,13 +2,22 @@
 
   // DELETE
   if (isset($_GET['delete'])) {
-    $user_id = $_GET['delete'];
-    $query = "DELETE FROM users WHERE user_id = $user_id";
-    $delete_query = mysqli_query($connection, $query);
-    ?>
-    <script>alert('Usuário excluído com sucesso')</script>
-    <script>window.location.href = "users"</script>
-    <?php    
+
+    if (isset($_SESSION['user_role'])) {
+
+      if ($_SESSION['user_role'] == 'admin') {
+
+        $user_id = $_GET['delete'];
+        $user_id = mysqli_real_escape_string($connection, $user_id);
+
+        $query = "DELETE FROM users WHERE user_id = $user_id";
+        $delete_query = mysqli_query($connection, $query);
+        ?>
+        <script>alert('Usuário excluído com sucesso')</script>
+        <script>window.location.href = "users"</script>
+        <?php 
+      }      
+    }
   }
 
 ?>
@@ -16,6 +25,7 @@
 <table class="table table-bordered table-hover text-center" >
   <thead>
     <tr>
+      <th style="text-align: center !important;">ID</th>
       <th style="text-align: center !important;">Usuário</th>
       <th style="text-align: center !important;">Primeiro Nome</th>
       <th style="text-align: center !important;">Sobrenome</th>
@@ -36,6 +46,7 @@
         while ($row = mysqli_fetch_assoc($select_users)) { 
           ?>       
           <tr>
+            <td><?= $row['user_id'] ?></td>           
             <td><?= $row['user_name'] ?></td>           
             <td><?= $row['first_name'] ?></td>           
             <td><?= $row['last_name'] ?></td>           
