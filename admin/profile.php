@@ -84,49 +84,10 @@
               <input type="email" class="form-control" name="user_email" required id="email" value="<?= $user_email ?>">
             </div>
 
-            <!-- Role -->
-            <div class="form-group">
-
-              <label for="user_role">Papel</label><br>
-
-              <select name="user_role" id="user_role" class="form-control">
-
-                <?php
-
-                  $query = "SELECT * FROM users";
-
-                  $select_user = mysqli_query($connection, $query); 
-
-                  confirm_query($select_user);
-
-                ?>
-
-                <!-- admin -->
-                <option 
-                  <?php
-                    if ($user_role == "admin") {
-                      echo "selected";
-                    }
-                  ?>
-                value="admin">Administrador</option>  
-
-                <!-- subscriber -->
-                <option 
-                  <?php
-                    if ($user_role == "subscriber") {
-                      echo "selected";
-                    }
-                  ?>
-                value="subscriber">Inscrito</option>          
-
-              </select>
-
-            </div>
-
             <!-- Password -->
             <div class="form-group">
               <label for="user_password">Senha</label>
-              <input type="password" class="form-control" name="user_password" required id="user_password" value="<?= $user_password ?>">
+              <input type="password" class="form-control" name="user_password" required id="user_password" value="" autocomplete="off">
             </div>
 
             <!-- Submit -->

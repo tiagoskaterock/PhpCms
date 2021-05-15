@@ -20,6 +20,26 @@
     }
   }
 
+  // MAKE ADMIN
+  if (isset($_GET['make_admin'])) {
+
+    if (isset($_SESSION['user_role'])) {
+
+      if ($_SESSION['user_role'] == 'admin') {
+
+        $user_id = $_GET['make_admin'];
+        $user_id = mysqli_real_escape_string($connection, $user_id);
+
+        $query = "UPDATE users set user_role = 'admin' WHERE user_id = $user_id";
+        $make_admin_query = mysqli_query($connection, $query);
+        ?>
+        <script>alert('Usuário tornado admin com sucesso')</script>
+        <script>window.location.href = "users"</script>
+        <?php 
+      }      
+    }
+  }
+
 ?>
 
 <table class="table table-bordered table-hover text-center" >
@@ -31,7 +51,7 @@
       <th style="text-align: center !important;">Sobrenome</th>
       <th style="text-align: center !important;">Email</th>
       <th style="text-align: center !important;">Papel</th>      
-      <th style="text-align: center !important;" colspan="2">Ação</th>      
+      <th style="text-align: center !important;" colspan="3">Ação</th>      
     </tr>
   </thead>
 
@@ -65,6 +85,13 @@
             ?>
 
             <td class="<?= $classe; ?>"><?= $papel_do_user ?></td> 
+
+
+            <td>
+              <a href="users?make_admin=<?= $row['user_id'] ?>"
+                onclick="return confirm('Deseja mesmo tornar este usuário um admin?');">Make Admin</a>
+            </td> 
+
 
             <td>
               <a href="users?source=edit_user&user_id=<?= $row['user_id'] ?>">Editar</a>

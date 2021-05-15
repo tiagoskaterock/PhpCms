@@ -1,14 +1,28 @@
 <?php
 
+	function vai_pra_casa_do_admin() {
+		header("Location: ../admin");
+	}
+
 	if (isset($_GET['user_id'])) {
+
+		if ($_GET['user_id'] == '') {
+			// id vazio
+			vai_pra_casa_do_admin();
+		}
 
 		$user_id = $_GET['user_id'];
 
 		$query = "SELECT * FROM users WHERE user_id = $user_id;";
 
-		$select_user = mysqli_query($connection, $query);  
+		$select_user = mysqli_query($connection, $query);
 
 		confirm_query($select_user); 
+
+		if (mysqli_num_rows($select_user) < 1) {
+			// id inexistente na base de dados
+			vai_pra_casa_do_admin();
+		}
 
 		while ($row = mysqli_fetch_assoc($select_user)) {
 			$name = $row['user_name'];
@@ -16,9 +30,13 @@
 			$email = $row['user_email'];
 			$first = $row['first_name'];
 			$last = $row['last_name'];
-			$role = $row['user_role'];	
-		}		
+			//$role = $row['user_role'];	
+		}
 		
+	}
+	else {
+		// sem get id
+		vai_pra_casa_do_admin();
 	}
 	
 	if (isset($_POST['update_user'])) {
@@ -27,12 +45,12 @@
 		$first_name = $_POST['first_name'];
 		$last_name = $_POST['last_name'];
 		$user_email = $_POST['user_email'];
-		$user_role = $_POST['user_role'];
+		//$user_role = $_POST['user_role'];
 		$user_password = $_POST['user_password'];
 
 		$user_password = password_hash($user_password, PASSWORD_DEFAULT);
 				
-		$query = "UPDATE `users` SET `user_name` = '{$user_name}', `user_password` = '{$user_password}', `first_name` = '{$first_name}', `last_name` = '{$last_name}', `user_email` = '{$user_email}', `user_role` = '{$user_role}' WHERE `users`.`user_id` = $user_id; ";
+		$query = "UPDATE `users` SET `user_name` = '{$user_name}', `user_password` = '{$user_password}', `first_name` = '{$first_name}', `last_name` = '{$last_name}', `user_email` = '{$user_email}' /*`user_role` = '{$user_role}'*/ WHERE `users`.`user_id` = $user_id; ";
 
 		$update_user_query = mysqli_query($connection, $query);
 
@@ -72,7 +90,7 @@
 		<input type="email" class="form-control" name="user_email" required id="email" value="<?= $email ?>">
 	</div>
 
-	<!-- Role -->
+	<!--
 	<div class="form-group">
 
 		<label for="user_role">Papel</label><br>
@@ -89,7 +107,6 @@
 
 	    ?>
 
-	    <!-- admin -->
 	    <option 
 	    	<?php
 	    		if ($role == "admin") {
@@ -98,7 +115,6 @@
 	    	?>
 	    value="admin">Administrador</option>	
 
-	    <!-- subscriber -->
 	    <option 
 	    	<?php
 	    		if ($role == "subscriber") {
@@ -110,11 +126,12 @@
 		</select>
 
 	</div>
+	-->
 
 	<!-- Password -->
 	<div class="form-group">
 		<label for="user_password">Senha</label>
-		<input type="password" class="form-control" name="user_password" required id="user_password" value="<?= $password ?>">
+		<input type="password" class="form-control" name="user_password" required id="user_password" value="" autocomplete="off">
 	</div>
 
 	<!-- Submit -->
