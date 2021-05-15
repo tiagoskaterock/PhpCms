@@ -10,7 +10,31 @@
 
         $username = mysqli_real_escape_string($connection, $username);
         $email = mysqli_real_escape_string($connection, $email);
-        $password = mysqli_real_escape_string($connection, $password);       
+        $password = mysqli_real_escape_string($connection, $password);  
+
+        /*
+            LOGIN WITH PASSWORD UNDER
+        */
+        /*
+        $hash_format = "2y$10$";
+
+        $salt = "iusesomecrazystrings22";
+
+        $hash_format_and_salt = $hash_format . $salt; 
+
+        $encripted_password = crypt($password, $hash_format_and_salt);
+
+        $password = $encripted_password;
+        */
+        /*
+            LOGIN WITH PASSWORD ABOVE
+        */   
+
+
+        // NICE HASH SYSTEM TO SECURITY HERE
+        $password = password_hash($password, PASSWORD_DEFAULT);  
+        //
+
 
         $query = "SELECT rand_salt FROM users";
         $select_randsalt_query = mysqli_query($connection, $query);

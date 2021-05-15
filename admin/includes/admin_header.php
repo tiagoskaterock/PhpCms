@@ -13,9 +13,11 @@
   } 
   
   // not admin go back to blog
+  /*
   if ($_SESSION['user_role'] != "admin") {
     header("Location: ../");
   }
+  */
   
 ?>
 

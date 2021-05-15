@@ -8,6 +8,8 @@
 		$user_email = $_POST['user_email'];
 		$user_role = $_POST['user_role'];
 		$user_password = $_POST['user_password'];	
+
+		$user_password = password_hash($user_password, PASSWORD_DEFAULT);
 		
 		$query = "INSERT INTO `users` (`user_id`, `user_name`, `user_password`, `first_name`, `last_name`, `user_email`, `user_image`, `user_role`) 
 			VALUES (NULL, '{$user_name}', '{$user_password}', '{$first_name}', '{$last_name}', '{$user_email}', '', '{$user_role}')";

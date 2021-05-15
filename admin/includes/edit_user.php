@@ -29,6 +29,8 @@
 		$user_email = $_POST['user_email'];
 		$user_role = $_POST['user_role'];
 		$user_password = $_POST['user_password'];
+
+		$user_password = password_hash($user_password, PASSWORD_DEFAULT);
 				
 		$query = "UPDATE `users` SET `user_name` = '{$user_name}', `user_password` = '{$user_password}', `first_name` = '{$first_name}', `last_name` = '{$last_name}', `user_email` = '{$user_email}', `user_role` = '{$user_role}' WHERE `users`.`user_id` = $user_id; ";
 
