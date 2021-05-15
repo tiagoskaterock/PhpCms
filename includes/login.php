@@ -35,6 +35,7 @@
 
 		// echo $db_user_password;
 
+		// boolean                       // senha      // hash
 		$senha_certa = password_verify($password, $db_user_password);
 
 		// echo "<br>";
@@ -60,15 +61,40 @@
 			//header("Location: ../index.php");
 		}
 		else if (!$senha_certa) {
+			/*
+			echo "senha_certa: $senha_certa";
+			echo "<br>";
+			echo "senha: $password";
+			echo "<br>";
+			echo "db_user_password: $db_user_password";
+			echo "<br>";
+			echo "senha_digitada_em_hash_1: $senha_digitada_em_hash_1";
+			echo "<br>";
+			echo "senha_digitada_em_hash_2: $senha_digitada_em_hash_2";
+			echo "<br>";
+
+			$hash_1_senha_combinam = password_verify($password, $senha_digitada_em_hash_1);
+
+
+			if ($hash_1_senha_combinam) {
+				echo 'combina essa porra';
+			}
+			else {
+				echo 'deu merda essa bosta';
+			}
+			*/
+
 			?>
 			<script type="text/javascript">
 				alert("Senha incorreta");
 				window.location.href = "../index.php";
 			</script>
 			<?php
+			
 		}
 		// right username AND right password do login
-		else if ($username === $db_user_name && $senha_certa) {
+		else if ($username === $db_user_name && $senha_certa && $db_user_role == 'admin') {
+
 			$_SESSION['user_id'] = $db_user_id;
 			$_SESSION['username'] = $db_user_name;
 			$_SESSION['first_name'] = $db_first_name;
@@ -84,9 +110,21 @@
 			print_r($_SESSION);
 			echo '</pre>';
 			*/
-
-			header("Location: ../admin");
+			?>
+			<script>
+				alert('logged in as admin');
+				window.location.href = '../admin';
+			</script>
+			<?php
 				
+		}
+		else if ($username === $db_user_name && $senha_certa && $db_user_role != 'admin'){
+			?>
+			<script>
+				alert('logged in as user');
+				window.location.href = '..';
+			</script>
+			<?php
 		}
 
 	}
