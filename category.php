@@ -52,12 +52,25 @@
                     }
 
                 ?>
+                -->
 
-                <?php $count = conta_posts_ativos_por_categoria('posts', $post_category) ?>
+                <?php 
+                    $count = conta_posts_ativos_por_categoria('posts', $post_category); 
+                ?>
+
+                <?php $total_ativos = conta_posts_ativos_por_categoria('posts', $post_category);  ?>
 
                 <?php $count = ceil($count / $per_page) ?>
-            -->
+            
+                <?php 
 
+                    if ($total_ativos == 0) {
+                        ?>
+                        <h2 class="text-warning text-center">Nenhum post publicado</h2>
+                        <?php
+                    }
+
+                ?>
                 <?php                
 
                     if ($_SESSION['user_role'] == 'admin') {

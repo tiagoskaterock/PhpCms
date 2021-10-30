@@ -39,6 +39,10 @@
 
       <?php $count = conta_posts_ativos() ?>
 
+      <?php if ($count == 0): ?>
+        <h2 class="text-warning text-center">Nenhum Post publicado</h5>
+      <?php endif ?>
+
       <?php $count = ceil($count / $per_page) ?>
 
       <?php

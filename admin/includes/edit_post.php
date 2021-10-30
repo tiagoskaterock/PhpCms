@@ -26,7 +26,7 @@
 
 		if (isset($_POST['update_post'])) {
 
-			$post_author = $_POST['post_author'];
+			// $post_author = $_POST['post_author'];
 
 			$post_title = $_POST['post_title'];
 
@@ -140,10 +140,12 @@
 
 
 	<!-- Post Author -->
+	<!--
 	<div class="form-group">
 		<label for="post_author">Autor</label>
 		<input type="text" class="form-control" name="post_author" required value="<?= $post_author ?>">
 	</div>
+	-->
 
 
 	<!-- Post Status -->
