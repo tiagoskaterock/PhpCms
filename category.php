@@ -60,8 +60,15 @@
 
                 <?php                
 
-                    // published posts from certain category
-                    $query = "SELECT * FROM posts WHERE post_category_id = $post_category AND post_status = 'Published' ORDER BY post_id DESC";
+                    if ($_SESSION['user_role'] == 'admin') {
+                        // published posts from certain category
+                        $query = "SELECT * FROM posts WHERE post_category_id = $post_category ORDER BY post_id DESC";
+                    }
+                    else {
+                        // published posts from certain category
+                        $query = "SELECT * FROM posts WHERE post_category_id = $post_category AND post_status = 'Published' ORDER BY post_id DESC";                        
+                    }
+
 
                     $select_all_posts_query = mysqli_query($connection, $query);
 

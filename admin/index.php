@@ -1,23 +1,35 @@
 <?php require('includes/admin_header.php') ?>
 
-    <div id="wrapper">
+<div id="wrapper">
 
-        <?php require('includes/admin_navigation.php'); ?>
+  <?php require('includes/admin_navigation.php'); ?>
 
-        <div id="page-wrapper">
+  <div id="page-wrapper">
 
-            <div class="container-fluid">
+    <div class="container-fluid">
 
-                <?php boas_vindas_admin() ?>
+      <?php 
 
-                <?= mostra_cartoes_de_estatisticas() ?>
+      if ($_SESSION['user_role'] != 'admin') {
+        ?>
+        <script>
+          window.location.href = '..';
+        </script>
+        <?php
+      }
 
-                <?= mostra_grafico_de_colunas() ?>
+      ?>
 
-            </div>
-            <!-- /.container-fluid -->
+      <?php boas_vindas_admin() ?>
 
-        </div>
-        <!-- /#page-wrapper -->
+      <?= mostra_cartoes_de_estatisticas() ?>
 
-<?php require('includes/admin_footer.php'); ?>
+      <?= mostra_grafico_de_colunas() ?>
+
+    </div>
+    <!-- /.container-fluid -->
+
+  </div>
+  <!-- /#page-wrapper -->
+
+  <?php require('includes/admin_footer.php'); ?>

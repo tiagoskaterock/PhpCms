@@ -40,7 +40,12 @@
 
                 <?php
 
-                    $query = "SELECT * FROM posts WHERE post_status = 'Published' and post_author_id = '$author' ORDER BY post_id DESC";
+                    if ($_SESSION['user_role'] == 'admin') {
+                        $query = "SELECT * FROM posts and post_author_id = '$author' ORDER BY post_id DESC";
+                    }
+                    else {
+                        $query = "SELECT * FROM posts WHERE post_status = 'Published' and post_author_id = '$author' ORDER BY post_id DESC";
+                    }                
 
                     $select_all_posts_query = mysqli_query($connection, $query);
 

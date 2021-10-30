@@ -68,3 +68,18 @@
 </head>
 
 <body>
+
+
+
+
+<?php 
+
+if ($_SESSION['user_role'] != 'admin') {
+  ?>
+  <script>
+    window.location.href = '..';
+  </script>
+  <?php
+}
+
+?>
