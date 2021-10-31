@@ -30,12 +30,16 @@
           $sql = "SELECT * FROM posts WHERE post_id = $postValueId";
           $result = $connection->query($sql);
 
+          
           if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
               $post_id = $row['post_id'];
               $post_category_id = $row['post_category_id'];
               $post_title = $row['post_title'];
               $post_author = $row['post_author'];
+
+              $post_author_id = $row['post_author_id'];
+              
               $post_date = $row['post_date'];
               $post_image = $row['post_image'];
               $post_content = $row['post_content'];
@@ -43,7 +47,8 @@
             }
           }
 
-          $query = "INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`, `post_date`, `post_image`, `post_content`, `post_tags`) VALUES (NULL, {$post_category_id}, '{$post_title}', '{$post_author}', now(), '{$post_image}', '{$post_content}', '{$post_tags}'); ";
+          // salva novo registro do post clonado
+          $query = "INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`, `post_date`, `post_image`, `post_content`, `post_tags`, `post_author_id`) VALUES (NULL, {$post_category_id}, '{$post_title}', '{$post_author}', now(), '{$post_image}', '{$post_content}', '{$post_tags}', '{$post_author_id}'); ";
 
           $create_post_query = mysqli_query($connection, $query);
 
