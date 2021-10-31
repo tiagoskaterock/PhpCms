@@ -17,7 +17,7 @@
                         header("Location: index");
                     }
                 
-                    if ($_SESSION['user_role'] == 'admin') {
+                    if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') {
                         $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
                     }
                     else {

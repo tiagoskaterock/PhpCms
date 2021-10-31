@@ -73,7 +73,7 @@
                 ?>
                 <?php                
 
-                    if ($_SESSION['user_role'] == 'admin') {
+                    if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') {
                         // published posts from certain category
                         $query = "SELECT * FROM posts WHERE post_category_id = $post_category ORDER BY post_id DESC";
                     }

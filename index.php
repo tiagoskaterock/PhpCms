@@ -49,7 +49,7 @@
 
 
       // mostra todos posts apenas para usuários administradores logados
-      if ($_SESSION['user_role'] == 'admin') {
+      if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') {
         $query = "SELECT * FROM posts ORDER BY post_id DESC LIMIT $per_page OFFSET $page_1";
       }
       else {

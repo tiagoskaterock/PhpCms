@@ -12,7 +12,13 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="<?= index() ?>">CMS</a>
-    </div>     
+    </div>   
+
+    <?php 
+      if (isset($_GET['category'])) {
+        $categoria_id = $_GET['category'];
+      }    
+    ?>  
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -26,7 +32,11 @@
             $the_cat_id = $row['cat_id'];
             $cat_title = $row['cat_title'];
             ?>
-              <li>
+              <li 
+                <?php if(isset($categoria_id) && $categoria_id == $the_cat_id){
+                  echo 'class="active"';
+                } ?>
+              >
                 <a href="category?category=<?= $the_cat_id ?>"><?php echo $row['cat_title']; ?></a>
               </li>
             <?php
