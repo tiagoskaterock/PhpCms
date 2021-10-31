@@ -93,7 +93,7 @@
 			<?php
 			
 		}
-		// right username AND right password do login
+		// admin
 		else if ($username === $db_user_name && $senha_certa && $db_user_role == 'admin') {
 
 			$_SESSION['user_id'] = $db_user_id;
@@ -105,12 +105,7 @@
 			$_SESSION['user_email'] = $db_user_email;		
 			$_SESSION['user_role'] = $db_user_role;		
 			$_SESSION['user_password'] = $db_user_password;	
-			/*	
-			echo 'tudo certo';
-			echo '<pre>';
-			print_r($_SESSION);
-			echo '</pre>';
-			*/
+
 			?>
 			<script>
 				alert('logged in as admin');
@@ -119,11 +114,22 @@
 			<?php
 				
 		}
+
+		// inscrito
 		else if ($username === $db_user_name && $senha_certa && $db_user_role != 'admin'){
+			$_SESSION['user_id'] = $db_user_id;
+			$_SESSION['username'] = $db_user_name;
+			$_SESSION['first_name'] = $db_first_name;
+			$_SESSION['last_name'] = $db_last_name;
+			$_SESSION['password'] = $db_user_password;
+			$_SESSION['user_role'] = $db_user_role;		
+			$_SESSION['user_email'] = $db_user_email;		
+			$_SESSION['user_role'] = $db_user_role;		
+			$_SESSION['user_password'] = $db_user_password;	
 			?>
 			<script>
 				alert('logged in as user');
-				window.location.href = '..';
+				window.location.href = '../index';
 			</script>
 			<?php
 		}

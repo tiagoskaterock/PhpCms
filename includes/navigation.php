@@ -32,10 +32,12 @@
             $the_cat_id = $row['cat_id'];
             $cat_title = $row['cat_title'];
             ?>
-              <li 
-                <?php if(isset($categoria_id) && $categoria_id == $the_cat_id){
-                  echo 'class="active"';
-                } ?>
+              <li                 
+                <?php 
+                  // destaca categoria ativa
+                  if(isset($categoria_id) && $categoria_id == $the_cat_id){
+                    echo 'class="active"';
+                  } ?>
               >
                 <a href="category?category=<?= $the_cat_id ?>"><?php echo $row['cat_title']; ?></a>
               </li>
@@ -52,7 +54,7 @@
           { 
               session_start(); 
           } 
-          if (isset($_SESSION['username'])) {
+          if (isset($_SESSION['username']) && $_SESSION['user_role'] == 'admin') {
             ?>
             <li>
               <a href="admin">Admin</a>
@@ -76,7 +78,14 @@
                         
           }
           ?>
-          <li>
+          <li
+            <?php 
+              // destaca classe se estiver em registration
+              if (basename($_SERVER['PHP_SELF']) == 'registration.php') {
+                echo 'class="active"';
+              }
+            ?>
+          >
               <a href="registration">Registration</a>
           </li>
           <?php
