@@ -17,10 +17,20 @@
   <ul class="nav navbar-right top-nav">
 
     <!-- mostra usuários online -->
+    <!--
     <li>
       <a href="javascript:void(0)">
         <i class="fa fa-users"></i>
-        Usuários Online: <?= users_online() ?>        
+        Usuários Online:        
+      </a>
+    </li>
+    -->
+
+    <li>
+      <a href="javascript:void(0)">
+        <i class="fa fa-users"></i>
+        Usuários Online: 
+        <span class="users_online"><?php users_online() ?></span>      
       </a>
     </li>
 
