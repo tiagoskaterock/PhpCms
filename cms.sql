@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 01-Nov-2021 às 10:03
+-- Tempo de geração: 01-Nov-2021 às 12:30
 -- Versão do servidor: 5.7.35-0ubuntu0.18.04.1
 -- versão do PHP: 7.4.22
 
@@ -59,15 +59,6 @@ CREATE TABLE `comments` (
   `comment_status` varchar(255) CHARACTER SET utf8 NOT NULL,
   `comment_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `comments`
---
-
-INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comment_email`, `comment_content`, `comment_status`, `comment_date`) VALUES
-(36, 569, 'Natália Souza', 'naty@email.com', 'comentário sexy', 'approved', '2021-05-09'),
-(37, 581, 'Natália Souza', 'naty@email.com', 'hjkhjk', 'unapproved', '2021-05-09'),
-(38, 581, 'Natália Souza', 'naty@email.com', 'iuuiuiuiouio', 'unapproved', '2021-05-09');
 
 -- --------------------------------------------------------
 
@@ -183,6 +174,16 @@ CREATE TABLE `users_online` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Extraindo dados da tabela `users_online`
+--
+
+INSERT INTO `users_online` (`id`, `session`, `time`) VALUES
+(3, '27t1aogsrbijdg70hbmve1hpbs', 1635780536),
+(4, 'u82217f6sio4cvevbq4omecee7', 1635777672),
+(5, '7eemg62i02l1k1saa23prp2ub7', 1635777651),
+(6, 'oumfgkg057efr1lh18fj0nq3qu', 1635778544);
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -196,7 +197,8 @@ ALTER TABLE `categories`
 -- Índices para tabela `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`comment_id`);
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `comment_post_id` (`comment_post_id`);
 
 --
 -- Índices para tabela `posts`
@@ -274,11 +276,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `users_online`
 --
 ALTER TABLE `users_online`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restrições para despejos de tabelas
 --
+
+--
+-- Limitadores para a tabela `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comment_post_id` FOREIGN KEY (`comment_post_id`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `posts`
