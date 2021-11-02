@@ -13,10 +13,10 @@ The admin area show how many admin users are logged in in real time usin Ajax
 
 It is possible to create users, comments on front end and separate posts by categories.
 
-![CMS](printscreens/1.png)
-![CMS](printscreens/2.png)
-![CMS](printscreens/3.png)
-![CMS](printscreens/4.png)
-![CMS](printscreens/5.png)
-![CMS](printscreens/6.png)
-![CMS](printscreens/7.png)
+![CMS](imagems/printscreens/1.png)
+![CMS](imagems/printscreens/2.png)
+![CMS](imagems/printscreens/3.png)
+![CMS](imagems/printscreens/4.png)
+![CMS](imagems/printscreens/5.png)
+![CMS](imagems/printscreens/6.png)
+![CMS](imagems/printscreens/7.png)
