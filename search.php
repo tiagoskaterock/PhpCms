@@ -1,3 +1,5 @@
+<?php define('TITLE', 'Search') ?>
+
 <?php require('includes/header.php'); ?>
 
     <!-- Navigation -->

@@ -12,7 +12,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Home - Start Bootstrap Template</title>
+
+
+    <title>CMS - <?= TITLE ?></title>
 
     
 

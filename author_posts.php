@@ -4,6 +4,8 @@
     }
 ?>
 
+<?php define('TITLE', 'Author Posts') ?>
+
 <?php require('includes/header.php'); ?>
 
     <!-- Navigation -->

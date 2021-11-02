@@ -1,3 +1,5 @@
+<?php define('TITLE', 'Home') ?>
+
 <?php require('includes/header.php'); ?>
 
 <?php show_navigation() ?>    

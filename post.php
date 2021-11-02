@@ -1,3 +1,5 @@
+<?php define('TITLE', 'Post') ?>
+
 <?php require('includes/header.php'); ?>
 
     <!-- Navigation -->

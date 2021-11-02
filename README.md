@@ -20,3 +20,4 @@ It is possible to create users, comments on front end and separate posts by cate
 ![CMS](images/printscreens/5.png)
 ![CMS](images/printscreens/6.png)
 ![CMS](images/printscreens/7.png)
+![CMS](images/printscreens/8.png)

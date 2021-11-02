@@ -42,7 +42,7 @@
                 <a href="category?category=<?= $the_cat_id ?>"><?php echo $row['cat_title']; ?></a>
               </li>
             <?php
-          }          
+          } // end categories while loop         
         ?>
 
         
@@ -66,18 +66,13 @@
             ?>
             <li>
               <a href="admin/posts?source=edit_post&p_id=<?= $the_post_id ?>">Edit Post</a>
-            </li>
-
-
-            
-
-
-            
+            </li>  
             <?php              
             }
                         
           }
           ?>
+
           <li
             <?php 
               // destaca classe se estiver em registration
@@ -88,17 +83,24 @@
           >
               <a href="registration">Registration</a>
           </li>
+
+
+
+
+
+
+
+          <li
+            <?php 
+              // destaca classe se estiver em contato
+              if (basename($_SERVER['PHP_SELF']) == 'contact.php') {
+                echo 'class="active"';
+              }
+            ?>
+          >
+              <a href="contact">Contact</a>
+          </li>
           <?php
-
-
-          /*
-          $query = "SELECT post_id FROM posts;";
-          $select_post_id = mysqli_query($connection, $query);
-
-          while ($row = mysqli_fetch_assoc($select_post_id)) {
-            print_r($row);
-          }
-          */
 
         ?>
 

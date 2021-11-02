@@ -1,3 +1,5 @@
+<?php define('TITLE', 'Categories') ?>
+
 <?php require('includes/header.php'); ?>
 
     <!-- Navigation -->
