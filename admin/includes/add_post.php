@@ -159,9 +159,8 @@
 	<!-- Post Content -->
 	<div class="form-group">
 		<label>Conteúdo</label>
-		<!--<div id="editor" name="post_content"></div>-->
 		
-		<textarea class="form-control" name="post_content" required cols="30" rows="5" id="editor">Digite seu texto aqui...</textarea>
+		<textarea class="form-control" name="post_content" required cols="30" rows="5" id="editor"> </textarea>
 	</div>
 
 
