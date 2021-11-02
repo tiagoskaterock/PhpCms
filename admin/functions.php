@@ -432,7 +432,7 @@ function update_categories(){
   global $connection;
   if (isset($_GET['edit'])){
     $cat_id = $_GET['edit'];
-    require('includes/update_categories');
+    require('includes/update_categories.php');
   }
 }
 
