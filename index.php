@@ -18,24 +18,23 @@
 
 
 
-
       <?php 
 
-      $per_page = 5;
+        $per_page = 5;
 
-      if (isset($_GET['page'])) {
-        $page = $_GET['page'];
-      }
-      else {
-        $page = "";
-      }
+        if (isset($_GET['page'])) {
+          $page = $_GET['page'];
+        }
+        else {
+          $page = "";
+        }
 
-      if ($page == "" || $page == 1) {
-        $page_1 = 0;
-      }
-      else {
-        $page_1 = ($page * $per_page) - $per_page;
-      }
+        if ($page == "" || $page == 1) {
+          $page_1 = 0;
+        }
+        else {
+          $page_1 = ($page * $per_page) - $per_page;
+        }
 
       ?>
 
@@ -57,7 +56,6 @@
       else {
         $query = "SELECT * FROM posts WHERE post_status = 'Published'  ORDER BY post_id DESC LIMIT $per_page OFFSET $page_1";
       }
-
 
 
       $select_all_posts_query = mysqli_query($connection, $query);
@@ -133,30 +131,12 @@
 
       ?>
 
-
     </div>
-
-
 
     <?php show_sidebar() ?>
 
   </div>
 
-  <ul class="pagination justify-content-center">
-    <?php
-    for ($i=1; $i <= $count ; $i++) { 
-      if ($page == $i) {
-        ?>
-        <li class="active" ><a href="index?page=<?= $i ?>"><?= $i ?></a></li>
-        <?php
-      }
-      else {
-        ?>
-        <li><a href="index?page=<?= $i ?>"><?= $i ?></a></li>
-        <?php
-      }
-    }
-    ?>
-  </ul>
+  <?php include('includes/pagination.php') ?>
 
   <?php show_footer() ?>
