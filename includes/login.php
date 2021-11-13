@@ -12,6 +12,7 @@
 		$username = mysqli_real_escape_string($connection, $user);
 		$password = mysqli_real_escape_string($connection, $pass);
 
+		// confere s eo nome de usuário existe no banco
 		$query = "SELECT * FROM users 
 							WHERE user_name = '{$username}' /*
 							AND user_password = '{$password}'*/";
@@ -19,10 +20,11 @@
 		$select_user_query = mysqli_query($connection, $query);  
 
 		if (!$select_user_query) {
-			// die('ERROR: ' . mysqli_error($connection));
+			die('ERROR: ' . mysqli_error($connection));
 		}
 
 		while ($row = mysqli_fetch_assoc($select_user_query)) {
+			
 			$db_user_id = $row['user_id'];
 			$db_user_name = $row['user_name'];
 			$db_user_password = $row['user_password'];
@@ -34,21 +36,12 @@
 			$rand_salt = $row['user_id'];
 		}
 
-		// echo $db_user_password;
-
 		// boolean                       // senha      // hash
 		$senha_certa = password_verify($password, $db_user_password);
 
 		// echo "<br>";
 
-		// echo $senha_certa;
 
-		?>
-		<script type="text/javascript">
-			// var senha_certa = '<?php echo $senha_certa ?>';
-			// alert(senha_certa);
-		</script>
-		<?php
 
 		// wrong username OR wrong password do not login
 		
@@ -62,7 +55,7 @@
 			//header("Location: ../index.php");
 		}
 		else if (!$senha_certa) {
-			/*
+			
 			echo "senha_certa: $senha_certa";
 			echo "<br>";
 			echo "senha: $password";
@@ -76,7 +69,7 @@
 
 			$hash_1_senha_combinam = password_verify($password, $senha_digitada_em_hash_1);
 
-
+			/*
 			if ($hash_1_senha_combinam) {
 				echo 'combina essa porra';
 			}
@@ -84,17 +77,22 @@
 				echo 'deu merda essa bosta';
 			}
 			*/
+			
+
 
 			?>
+
 			<script type="text/javascript">
 				alert("Senha incorreta");
 				window.location.href = "../index.php";
 			</script>
 			<?php
+
 			
 		}
 		// admin
 		else if ($username === $db_user_name && $senha_certa && $db_user_role == 'admin') {
+
 
 			$_SESSION['user_id'] = $db_user_id;
 			$_SESSION['username'] = $db_user_name;

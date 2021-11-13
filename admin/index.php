@@ -6,19 +6,7 @@
 
   <div id="page-wrapper">
 
-    <div class="container-fluid">
-
-      <?php 
-
-      if ($_SESSION['user_role'] != 'admin') {
-        ?>
-        <script>
-          window.location.href = '..';
-        </script>
-        <?php
-      }
-
-      ?>
+    <div class="container-fluid">      
 
       <?php boas_vindas_admin() ?>
 

@@ -2,6 +2,16 @@
 
 require_once('../includes/db.php');
 
+function confere_se_e_admin() {
+  if ($_SESSION['user_role'] != 'admin') {
+    ?>
+    <script>
+      window.location.href = '..';
+    </script>
+    <?php
+  }
+}
+
 function users_online() {
 
   if (isset($_GET['online_users'])) {

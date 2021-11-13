@@ -77,7 +77,7 @@
 if ($_SESSION['user_role'] != 'admin') {
   ?>
   <script>
-    window.location.href = '..';
+    // window.location.href = '..';
   </script>
   <?php
 }
