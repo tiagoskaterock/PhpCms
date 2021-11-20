@@ -21,6 +21,7 @@ Use the file at **/includes/db_example.php** to build your connection
 Create your connection in this file example and change the name to **db.php**
 You can you use localhost or an online website
 
+![Registration](images/printscreens/0.png)
 ![CMS](images/printscreens/1.png)
 ![CMS](images/printscreens/2.png)
 ![CMS](images/printscreens/3.png)
