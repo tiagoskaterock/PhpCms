@@ -6,27 +6,45 @@
 <?php
 
 $message = '';
+$minino_caracteres_username = 4;
+$minino_caracteres_password = 5;
 
 if (isset($_POST['username'])) {
-  $username = $_POST['username'];
-  $email = $_POST['email'];
-  $password = $_POST['password'];
 
+  // tirando espaços em branco no começo e final dos campos
+  $username = trim($_POST['username']);
+  $email = trim($_POST['email']);
+  $password = trim($_POST['password']);
 
-  
-
+  // evitando ataques sql injection
   $username = mysqli_real_escape_string($connection, $username);
   $email = mysqli_real_escape_string($connection, $email);
-  $password = mysqli_real_escape_string($connection, $password); 
+  $password = mysqli_real_escape_string($connection, $password);   
 
+  // mostrando erros
+  $error = [
+    'username' => '',
+    'email' => '',
+    'password' => '',
+  ];
+
+  // username vazio
+  if ($username == '') {
+    $message = "Username can't be empty";
+  }
+  // username menor que 4
+  else if (strlen($username) < $minino_caracteres_username) {
+    $message = 'Username needs to have a least ' . $minino_caracteres_username . ' characters';
+  }
+  
   // if name already exists kills the script
-  if (username_exists($username)) {
+  else if (username_exists($username)) {
     $message = 'User already exists';
   }
 
-  else // if useremail already exists kills the script
-  if (useremail_exists($email)) {
-    $message = 'This email is already beeing used';
+  // if useremail already exists kills the script
+  else if (useremail_exists($email)) {
+    $message = 'This email is already beeing used, you can log in here <a href="index">Login</a>';
   }
 
   // empty fields kill the script
@@ -51,8 +69,11 @@ if (isset($_POST['username'])) {
   else if (empty($password)) {
     $message = 'Password cannot be empty';
   }
+  else if (strlen($password) <  $minino_caracteres_password) {
+    $message = 'Password needs to have a least ' . $minino_caracteres_password . ' characters';
+  }
 
-  // save new user
+  // if all goes right, save new user
   else {
 
 
